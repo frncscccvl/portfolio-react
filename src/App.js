@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
+import ProjectCard from './components/ProjectCard';
+import ProjectDetail from './components/ProjectDetail';
 import './App.css';
+
+const allProjectsData = {
+  designer: [
+
+  ],
+  engineer: [
+
+  ],
+  writer: [
+
+  ],
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+
+      <main className = "main-content">
+        {/* Left side: Project Cards based on active tab */}
+        <div className = "cards-section">
+
+        </div>
+
+        {/* Right side: Detailed view of the selected project */}
+        <div className = "detail-section">
+
+        </div>
+
+      </main>
+
+      <Footer />
     </div>
   );
 }
