@@ -1,15 +1,22 @@
 p {
   overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  margin: 2px 0 0 16px;
-  padding: 0;
-  width: 100%;
-  line-height: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  height: 80px;
+
+  display: flex; /* Use flex to center content vertically */
+  align-items: center; /* Center content vertically */
+  justify-content: flex-start; /* Align content to the left inside the header */
 
   font-size: clamp(1.2rem, 4vw + 0.5rem, 2.5rem);
   z-index: 1000;

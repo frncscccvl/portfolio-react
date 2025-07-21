@@ -1,11 +1,121 @@
+/* src/App.css */
+
+/* Custom Font Import */
 @font-face {
   font-family: "Chromatica";
-  src: url("assets/fonts/ChromaticaTrial-Regular.otf");
+  src: url("assets/fonts/ChromaticaTrial-Regular.otf"); /* Ensure this path is correct */
 }
 
-body {
-  background-color: #E8E6E2;
-  color: #333333;
-  font-family: "Chromatica";
-  /*line-height: 0;*/
+/* Basic reset and global styling */
+body, html, #root {
+  background-color: #E8E6E2; /* Your chosen background color */
+  color: #333; /* Default text color */
+  font-family: "Chromatica", sans-serif; /* Fallback font is important */
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Make sure html and body take full height */
+  overflow: hidden; /* Prevent body scrolling; allow specific sections to scroll */
+}
+
+.app-container {
+  display: block;
+  position: relative; /* This is the positioning context for the absolute ProjectDetail */
+  min-height: 100vh;
+  /* overflow: hidden; Removed this here if it's already on body/html to avoid double hidden */
+}
+
+/* CSS Variables for Header/Footer heights */
+:root {
+  --header-height: 80px; /* IMPORTANT: Adjust based on the ACTUAL, computed height of your Header.js component */
+  --footer-height: 80px; /* IMPORTANT: Adjust based on the ACTUAL, computed height of your Footer.js component */
+  --main-content-padding: 10px; /* Padding around the main content area */
+  --detail-width: 51vw; /* New variable for the detail section's fixed width */
+}
+
+/* MAIN LAYOUT FOR DESKTOP */
+.main-content.desktop-only {
+  display: grid;
+  /* Now, grid only has one column for cards-section. 
+     The detail-section is absolutely positioned, so it's not part of this grid. */
+  grid-template-columns: 1fr; /* Cards section takes all available width */
+  gap: var(--main-content-padding); /* No gap between columns anymore in this grid */
+  padding: var(--main-content-padding);
+  box-sizing: border-box;
+
+  /*margin-top: var(--header-height);*/
+  /*margin-bottom: var(--footer-height);*/
+
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  overflow: hidden;
+
+  /* Add padding-right to main-content to make space for the absolute detail-section */
+  padding-right: calc(var(--detail-width) + var(--main-content-padding));
+  /* This creates a gap for the detail section: its width + the gap you want */
+}
+
+/* Left side: Project Cards section (Grid for cards themselves) */
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin-top: var(--header-height);
+  margin-bottom: var(--footer-height);
+  gap: 8px;
+  padding: 10px;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+/* Right side: Project Detail section - NOW ABSOLUTELY POSITIONED */
+.detail-section {
+  position: absolute; /* Take it out of the normal document flow */
+  top: 0; /* Align to the top of the parent (.app-container) */
+  bottom: 0; /* Align to the bottom of the parent (.app-container) */
+  right: 0; /* Align to the right edge of the parent (.app-container) */
+
+  width: var(--detail-width); /* Set its width to 50vw (50% of viewport width) */
+
+  /* Account for header and footer heights with padding within the detail section */
+  /*padding-top: calc(var(--header-height) + var(--main-content-padding));
+  padding-bottom: calc(var(--footer-height) + var(--main-content-padding));*/
+  padding-left: 20px; /* Maintain your existing horizontal padding */
+  padding-right: 20px; /* Maintain your existing horizontal padding */
+  box-sizing: border-box; /* Include padding in the total width/height */
+
+  overflow-y: auto; /* Allow internal scrolling for the detail content */
+}
+
+.detail-section.detail-active {
+  border-left: 1px solid #333; 
+}
+
+/* Placeholder styles */
+.no-projects-message,
+.placeholder-text,
+.placeholder-detail {
+  text-align: center;
+  color: #777;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.placeholder-detail h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+.placeholder-detail p {
+  color: #555;
+  font-size: 1.1em;
+}
+
+
+/* MEDIA QUERY FOR SMALLER SCREENS */
+@media (max-width: 1023px) {
+  .main-content.desktop-only,
+  .detail-section { /* Hide both if the breakpoint is met */
+    display: none;
+  }
 }

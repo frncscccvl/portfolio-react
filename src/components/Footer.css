@@ -2,11 +2,15 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  font-size: 2.5rem;
-  padding: 2px 16px;
+  right: 0;
+
+  margin: 0;
+  padding: 10px 20px; /* Example padding: Adjust vertical (10px) and horizontal (16px) as needed */
+  box-sizing: border-box;
+  height: 80px;
   width: 100%;
   box-sizing: border-box;
-  line-height: 0;
+  line-height: 1.2;
 
   display: flex;
   justify-content: flex-start;
@@ -19,9 +23,14 @@
 
 .footer p {
   display: flex;
-
   flex-wrap: wrap;
   word-break: break-word;
+
+  justify-content: center; 
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
 }
 
 .clickable-word {
