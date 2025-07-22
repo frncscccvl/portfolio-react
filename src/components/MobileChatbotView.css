@@ -1,0 +1,73 @@
+.mobile-chatbot-container {
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Chat components stack vertically */
+  justify-content: space-between; /* Push input to bottom, messages to top */
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #E8E6E2; /* background for the chatbot area */
+  border-radius: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+  border: 1px solid #333;
+
+  /* Make it take available space between header and footer */
+  margin-top: var(--header-height);
+  margin-bottom: var(--footer-height);
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  /*width: 95%;*/ /* Take full width on mobile */
+
+  width: calc(100% - (var(--main-content-padding) * 2)); /* Set a width less than 100% */
+  margin-left: auto; /* Distribute available horizontal space */
+  margin-right: auto; /* Distribute available horizontal space */
+
+  overflow-y: auto; /* Allow messages to scroll */
+}
+
+/* This media query makes the chatbot container visible on mobile */
+@media (max-width: 1023px) { /* MATCH YOUR App.css BREAKPOINT */
+  .mobile-chatbot-container {
+    display: flex; /* Show the chatbot container */
+    /* Adjust padding for mobile as needed */
+    padding: var(--main-content-padding); /* Use app-level padding variable */
+    margin-left: var(--main-content-padding);
+    margin-right: var(--main-content-padding);
+  }
+}
+
+/* Basic styling for chatbot elements */
+.chatbot-messages {
+  flex-grow: 1; /* Messages area takes up most of the space */
+  overflow-y: auto;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px;
+}
+
+.chatbot-input {
+  display: flex;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.chatbot-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.chatbot-input button {
+  padding: 10px 15px;
+  background-color: #F28500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.chatbot-input button:hover {
+  background-color: #E27200;
+}

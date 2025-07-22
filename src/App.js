@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import ProjectCard from './components/ProjectCard';
 import ProjectDetail from './components/ProjectDetail';
+import MobileChatbotView from './components/MobileChatbotView';
 import './App.css';
 
 // --- Dummy Data (Placeholder) ---
@@ -25,6 +26,7 @@ const allProjectsData = {
 function App() {
   const [activeTab, setActiveTab] = useState(null); // Default to 'null'
   const [selectedProject, setSelectedProject] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const projectsInActiveTab = allProjectsData[activeTab] || [];
 
@@ -46,42 +48,59 @@ function App() {
     }
   }, [activeTab]);*/
 
+  // Effect to determine if it's a mobile screen based on width
+  useEffect(() => {
+    const checkMobile = () => {
+      // This breakpoint should match your @media (max-width: 1023px) in App.css
+      setIsMobile(window.innerWidth <= 1023);
+    };
+
+    checkMobile(); // Check on initial mount
+    window.addEventListener('resize', checkMobile); // Add resize listener
+
+    return () => window.removeEventListener('resize', checkMobile); // Cleanup
+  }, []);
+
   return (
     <div className="app-container">
       <Header />
 
-      <main className="main-content desktop-only">
-        {/* Left side: Project Cards based on active tab */}
-        <div className="cards-section">
-          {activeTab === null ? (
-            <p className="placeholder-text"></p>
-          ) : projectsInActiveTab.length > 0 ? (
-            projectsInActiveTab.map(project => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onClick={handleCardClick}
-                isSelected={selectedProject && selectedProject.id === project.id}
-              />
-            ))
-          ) : (
-            <p className="no-projects-message">No projects found for this category yet.</p>
-          )}
-        </div>
+      {isMobile ? (
+        <MobileChatbotView />
+      ) : (
+        <main className="main-content desktop-only">
+          {/* Left side: Project Cards based on active tab */}
+          <div className="cards-section">
+            {activeTab === null ? (
+              <p className="placeholder-text"></p>
+            ) : projectsInActiveTab.length > 0 ? (
+              projectsInActiveTab.map(project => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onClick={handleCardClick}
+                  isSelected={selectedProject && selectedProject.id === project.id}
+                />
+              ))
+            ) : (
+              <p className="no-projects-message">No projects found for this category yet.</p>
+            )}
+          </div>
 
-        {/* Right side: Detailed view of the selected project */}
-        <div className={`detail-section ${selectedProject ? 'detail-active' : ''}`}>
-          {selectedProject ? (
-            <ProjectDetail project={selectedProject} />
-          ) : (
-            <div className="placeholder-detail">
-              <p></p>
-            </div>
-          )}
-        </div>
-      </main>
+          {/* Right side: Detailed view of the selected project */}
+          <div className={`detail-section ${selectedProject ? 'detail-active' : ''}`}>
+            {selectedProject ? (
+              <ProjectDetail project={selectedProject} />
+            ) : (
+              <div className="placeholder-detail">
+                <p></p>
+              </div>
+            )}
+          </div>
+        </main>
+      )}
 
-      <Footer onTabClick={handleTabClick} activeTab={activeTab} />
+      <Footer onTabClick={handleTabClick} activeTab={activeTab} isMobile={isMobile} />
     </div>
   );
 }

@@ -62,7 +62,15 @@ body, html, #root {
   gap: 8px;
   padding: 10px;
   height: 100%;
-  overflow-y: hidden;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cards-section::-webkit-scrollbar {
+  display: none;
 }
 
 /* Right side: Project Detail section - NOW ABSOLUTELY POSITIONED */
