@@ -46,6 +46,10 @@
   color: #F28500;
 }
 
+.clickable-word.active {
+  color: #F28500;
+}
+
 .with-strikethrough::after {
   content: '';
   position: absolute;

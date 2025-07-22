@@ -10,17 +10,15 @@
 
   border: 1px solid #333;
 
-  /* Make it take available space between header and footer */
-  margin-top: var(--header-height);
-  margin-bottom: var(--footer-height);
-  height: calc(100vh - var(--header-height) - var(--footer-height));
-  /*width: 95%;*/ /* Take full width on mobile */
+  position: absolute; /* Position it relative to the 'app-container' */
+  top: var(--header-height); /* Start below the header */
+  bottom: var(--footer-height); /* End above the footer */
 
   width: calc(100% - (var(--main-content-padding) * 2)); /* Set a width less than 100% */
-  margin-left: auto; /* Distribute available horizontal space */
-  margin-right: auto; /* Distribute available horizontal space */
+  left: 50%;
+  transform: translateX(-50%);
 
-  overflow-y: auto; /* Allow messages to scroll */
+  overflow: hidden; 
 }
 
 /* This media query makes the chatbot container visible on mobile */
@@ -28,9 +26,7 @@
   .mobile-chatbot-container {
     display: flex; /* Show the chatbot container */
     /* Adjust padding for mobile as needed */
-    padding: var(--main-content-padding); /* Use app-level padding variable */
-    margin-left: var(--main-content-padding);
-    margin-right: var(--main-content-padding);
+    padding: var(--main-content-padding);
   }
 }
 
@@ -39,8 +35,43 @@
   flex-grow: 1; /* Messages area takes up most of the space */
   overflow-y: auto;
   padding: 10px;
-  border-bottom: 1px solid #333;
+  /*border-bottom: 1px solid #333;*/
   margin-bottom: 10px;
+
+  display: flex; /* Use flexbox for messages to stack nicely */
+  flex-direction: column;
+  gap: 8px; /* Space between message bubbles */
+}
+
+.message-bubble {
+  max-width: 80%; /* Limit bubble width */
+  padding: 10px 15px;
+  border-radius: 18px; /* Rounded corners for chat bubbles */
+  line-height: 1.4;
+  word-wrap: break-word; /* Ensure long words wrap */
+}
+
+.message-bubble {
+  max-width: 80%; /* Limit bubble width */
+  padding: 10px 15px;
+  border-radius: 18px; /* Rounded corners for chat bubbles */
+  line-height: 1.4;
+  word-wrap: break-word; /* Ensure long words wrap */
+}
+
+.message-bubble.user {
+  align-self: flex-end; /* Align user messages to the right */
+  background-color: #F28500; /* Orange background for user messages */
+  color: white;
+  border-bottom-right-radius: 5px; /* Sharpen one corner for user */
+}
+
+.message-bubble.bot {
+  align-self: flex-start; /* Align bot messages to the left */
+  background-color: #f0f0f0; /* Light gray background for bot messages */
+  color: #333;
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: 5px; /* Sharpen one corner for bot */
 }
 
 .chatbot-input {
@@ -53,8 +84,15 @@
   flex-grow: 1;
   padding: 10px;
   border: 1px solid #eee;
-  border-radius: 5px;
+  border-radius: 18px;
   font-size: 1em;
+  font-family: "Chromatica";
+  outline: none;
+}
+
+.chatbot-input input:focus {
+  border-color: #F28500; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(242, 133, 0, 0.2);
 }
 
 .chatbot-input button {
@@ -62,12 +100,17 @@
   background-color: #F28500;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 18px;
   cursor: pointer;
   font-size: 1em;
+  font-family: "Chromatica";
   transition: background-color 0.3s ease;
 }
 
 .chatbot-input button:hover {
   background-color: #E27200;
+}
+
+.chatbot-input button:active {
+    transform: scale(0.98); /* Slight press effect */
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // Import useRef
+import React, { useState, useEffect, useRef } from 'react';
 import './Footer.css';
 
 const Footer = ({ onTabClick, activeTab }) => {
@@ -52,7 +52,7 @@ const Footer = ({ onTabClick, activeTab }) => {
       <p>
         [u]x&nbsp;
         <span
-          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''}`}
+          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'designer' ? 'active' : ''}`}
           style={{ '--animation-delay': '0s' }}
           onClick={() => handleInternalTabClick('designer')}
         >
@@ -60,7 +60,7 @@ const Footer = ({ onTabClick, activeTab }) => {
         </span>
         &nbsp;
         <span
-          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''}`}
+          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'engineer' ? 'active': ''}`}
           style={{ '--animation-delay': '0.2s' }}
           onClick={() => handleInternalTabClick('engineer')}
         >
@@ -68,7 +68,7 @@ const Footer = ({ onTabClick, activeTab }) => {
         </span>
         &nbsp;
         <span
-          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''}`}
+          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'writer' ? 'active' : ''}`}
           style={{ '--animation-delay': '0.4s' }}
           onClick={() => handleInternalTabClick('writer')}
         >
