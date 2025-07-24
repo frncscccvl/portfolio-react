@@ -68,6 +68,7 @@
   }
   40% {
     transform: translateY(-16px); /* Peak of the bounce */
+    /*color: #F28500;*/
   }
   60% {
     transform: translateY(-8px); /* Smaller secondary bounce */
@@ -78,4 +79,18 @@
 .bounce-on-load {
   animation: subtleBounce 1.5s ease-out forwards;
   animation-delay: var(--animation-delay, 0s); /* Use CSS variable for delay */
+}
+
+@media (max-width: 1023px) {
+  .clickable-word.active {
+    color: #333;
+  }
+
+  .clickable-word:hover {
+    color: #333;
+  }
+
+  .clickable-word {
+    cursor: initial;
+  }
 }

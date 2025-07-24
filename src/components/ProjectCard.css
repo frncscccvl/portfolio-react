@@ -8,7 +8,7 @@
   aspect-ratio: 1 / 1; 
   
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   overflow: hidden; /* Hide anything that goes outside the square */
   cursor: pointer;

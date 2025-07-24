@@ -1,6 +1,5 @@
-// src/components/ProjectDetail.js
 import React from 'react';
-import './ProjectDetail.css'; // We'll create this CSS file next
+import './ProjectDetail.css';
 
 const ProjectDetail = ({ project }) => {
   // Defensive check: If no project is passed (e.g., initially null), render nothing or a placeholder
@@ -13,11 +12,11 @@ const ProjectDetail = ({ project }) => {
   }
 
   // Destructure project properties for easier access
-  const { title, longDesc, technologies, liveLink, githubLink } = project;
+  const { title, longDesc, technologies, liveLink, githubLink, headerImage } = project;
 
   return (
     <div className="project-detail">
-      <h2 className="project-detail-title">{title}</h2>
+      <p className="project-detail-title">{title}</p>
       <p className="project-detail-description">{longDesc}</p>
 
       {technologies && technologies.length > 0 && (
@@ -50,6 +49,11 @@ const ProjectDetail = ({ project }) => {
       )}
 
       {/* Add more sections here as needed, e.g., screenshots, video links, your role, challenges, solutions */}
+      {headerImage && (
+        <div className="project-detail-header-image-container">
+          <img src={headerImage} alt={`${title} header`} className="project-detail-header-image" />
+        </div>
+      )}
     </div>
   );
 };

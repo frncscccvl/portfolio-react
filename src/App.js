@@ -6,17 +6,30 @@ import ProjectDetail from './components/ProjectDetail';
 import MobileChatbotView from './components/MobileChatbotView';
 import './App.css';
 
+/* Project card images*/
+import designProject1Img from './assets/images/project-card-header/ucf-icon.png';
+import designProject2Img from './assets/images/project-card-header/blurate-icon.png';
+import designProject3Img from './assets/images/project-card-header/cli-icon.png';
+import engineeringProject1Img from './assets/images/project-card-header/fliffstar-card.png';
+import engineeringProject2Img from './assets/images/project-card-header/android-id-project-card.png';
+
+/* Project header images */
+import designProject1Header from './assets/images/designer-tab/sarc-sticker/sarc-sticker-header.png';
+import designProject2Header from './assets/images/designer-tab/blurate/blurate-mockup.png';
+import designProject3Header from './assets/images/designer-tab/terminal-widgets/widgets-header.svg';
+import engineeringProject1Header from './assets/images/engineer-tab/fliffstar/fliffstar-header.png';
+
 // --- Dummy Data (Placeholder) ---
 // IMPORTANT: Populate this with your actual project data!
 const allProjectsData = {
   designer: [
-    { id: 'd1', title: 'UX Case Study 1', image: 'https://via.placeholder.com/400x400/FF7034/FFFFFF?text=Designer+1', shortDesc: 'A brief description of design project 1.' },
-    { id: 'd2', title: 'Brand Identity', image: 'https://via.placeholder.com/400x400/F28500/FFFFFF?text=Designer+2', shortDesc: 'A brief description of design project 2.' },
-    { id: 'd3', title: 'Mobile UI/UX', image: 'https://via.placeholder.com/400x400/FD5602/FFFFFF?text=Designer+3', shortDesc: 'A brief description of design project 3.' },
+    { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, shortDesc: 'Helping increase pass rates for first year undergrads', headerImage: designProject1Header },
+    { id: 'd2', title: '(blur-ATE)', image: designProject2Img, shortDesc: 'A brief description of design project 2.', headerImage: designProject2Header },
+    { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, shortDesc: 'A brief description of design project 3.', headerImage: designProject3Header },
   ],
   engineer: [
-    { id: 'e1', title: 'React App', image: 'https://via.placeholder.com/400x400/FFA500/FFFFFF?text=Engineer+1', shortDesc: 'A brief description of engineering project 1.' },
-    { id: 'e2', title: 'Node.js API', image: 'https://via.placeholder.com/400x400/FF8C00/FFFFFF?text=Engineer+2', shortDesc: 'A brief description of engineering project 2.' },
+    { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, shortDesc: 'A sportsbetting parlay ponderer.', headerImage: engineeringProject1Header },
+    { id: 'e2', title: 'Business Card', image: engineeringProject2Img, shortDesc: 'A brief description of engineering project 2.' },
   ],
   writer: [
     { id: 'w1', title: 'Technical Doc', image: 'https://via.placeholder.com/400x400/FF7034/FFFFFF?text=Writer+1', shortDesc: 'A brief description of writing project 1.' },
