@@ -12,12 +12,14 @@ import designProject2Img from './assets/images/project-card-header/blurate-icon.
 import designProject3Img from './assets/images/project-card-header/cli-icon.png';
 import engineeringProject1Img from './assets/images/project-card-header/fliffstar-card.png';
 import engineeringProject2Img from './assets/images/project-card-header/android-id-project-card.png';
+import writingProject1Img from './assets/images/project-card-header/peasantries-card.png';
 
 /* Project header images */
 import designProject1Header from './assets/images/designer-tab/sarc-sticker/sarc-sticker-header.png';
 import designProject2Header from './assets/images/designer-tab/blurate/blurate-mockup.png';
 import designProject3Header from './assets/images/designer-tab/terminal-widgets/widgets-header.svg';
 import engineeringProject1Header from './assets/images/engineer-tab/fliffstar/fliffstar-header.png';
+import writingProject1Header from './assets/images/writer-tab/peasantries/peasantries-landscape-mode.svg';
 
 // --- Dummy Data (Placeholder) ---
 // IMPORTANT: Populate this with your actual project data!
@@ -32,7 +34,7 @@ const allProjectsData = {
     { id: 'e2', title: 'Business Card', image: engineeringProject2Img, shortDesc: 'A brief description of engineering project 2.' },
   ],
   writer: [
-    { id: 'w1', title: 'Technical Doc', image: 'https://via.placeholder.com/400x400/FF7034/FFFFFF?text=Writer+1', shortDesc: 'A brief description of writing project 1.' },
+    { id: 'w1', title: 'Peasantries: An Introductory', image: writingProject1Img, shortDesc: 'A brief description of writing project 1.', headerImage: writingProject1Header },
   ],
 };
 

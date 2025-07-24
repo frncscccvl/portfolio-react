@@ -15,7 +15,7 @@
   margin-bottom: 20px; /* Space between the image and the title below it */
   overflow: hidden; /* Important to keep the image within its bounds */
   border-radius: 16px; /* Match parent's border-radius for top corners */
-  max-height: 800px; /* Or a fixed height, adjust as needed */
+  max-height: 100%; /* Or a fixed height, adjust as needed */
   display: flex; /* Helps with image centering/sizing */
   justify-content: center;
   align-items: center;

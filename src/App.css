@@ -56,7 +56,7 @@ body, html, #root {
 /* Left side: Project Cards section (Grid for cards themselves) */
 .cards-section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   margin-top: var(--header-height);
   margin-bottom: var(--footer-height);
   gap: 8px;
