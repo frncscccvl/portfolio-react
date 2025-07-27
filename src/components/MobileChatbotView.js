@@ -5,7 +5,7 @@ import './MobileChatbotView.css';
 const MobileChatbotView = () => {
   // State to store chat messages: [{ sender: 'user' | 'bot', text: 'message content' }]
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: "Hi there! I'm your portfolio chatbot. Ask me about [Your Name]'s bio, skills, or projects!" }
+    { sender: 'bot', text: "Hi there! I'm your portfolio chatbot. Ask me about FRANCIS' bio, skills, or projects!" }
   ]);
   // State for the current message being typed by the user
   const [inputMessage, setInputMessage] = useState('');

@@ -10,7 +10,7 @@
 
   border: 1px solid #333;
 
-  position: absolute; /* Position it relative to the 'app-container' */
+  position: fixed; /* Position it relative to the 'app-container' */
   top: var(--header-height); /* Start below the header */
   bottom: var(--footer-height); /* End above the footer */
 

@@ -58,7 +58,7 @@ const Footer = ({ onTabClick, activeTab }) => {
         >
           designer
         </span>
-        &nbsp;
+        <div className="hideClickableWords">&nbsp;
         <span
           className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'engineer' ? 'active': ''}`}
           style={{ '--animation-delay': '0.2s' }}
@@ -73,7 +73,7 @@ const Footer = ({ onTabClick, activeTab }) => {
           onClick={() => handleInternalTabClick('writer')}
         >
           writer
-        </span>
+        </span></div>
         &nbsp;scientist
       </p>
     </div>

@@ -1,9 +1,6 @@
-/* src/App.css */
-
-/* Custom Font Import */
 @font-face {
   font-family: "Chromatica";
-  src: url("assets/fonts/ChromaticaTrial-Regular.otf"); /* Ensure this path is correct */
+  src: url("assets/fonts/ChromaticaTrial-Regular.otf");
 }
 
 /* Basic reset and global styling */
@@ -34,35 +31,34 @@ body, html, #root {
 
 /* MAIN LAYOUT FOR DESKTOP */
 .main-content.desktop-only {
-  display: grid;
-  /* Now, grid only has one column for cards-section. 
-     The detail-section is absolutely positioned, so it's not part of this grid. */
-  grid-template-columns: 1fr; /* Cards section takes all available width */
-  gap: var(--main-content-padding); /* No gap between columns anymore in this grid */
-  padding: var(--main-content-padding);
-  box-sizing: border-box;
-
-  /*margin-top: var(--header-height);*/
-  /*margin-bottom: var(--footer-height);*/
-
-  height: calc(100vh - var(--header-height) - var(--footer-height));
+  display: flex;
+  flex-grow: 1; /* Allow main-content to take all vertical space between header/footer */
+  /* Remove explicit height here, let flexbox handle it */
   overflow: hidden;
-
-  /* Add padding-right to main-content to make space for the absolute detail-section */
-  padding-right: calc(var(--detail-width) + var(--main-content-padding));
-  /* This creates a gap for the detail section: its width + the gap you want */
+  width: 49vw;
+  height: calc(100vh - (var(--header-height)) - (var(--footer-height)));
 }
 
 /* Left side: Project Cards section (Grid for cards themselves) */
 .cards-section {
+  flex-basis: 50%; /* Start with 50% width */
+  flex-grow: 1; /* Allow it to grow if space available */
+  flex-shrink: 1; /* Allow it to shrink */
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  margin-top: var(--header-height);
-  margin-bottom: var(--footer-height);
+  grid-auto-rows: 1fr;
   gap: 8px;
   padding: 10px;
-  height: 100%;
+  height: 69%;
   overflow-y: auto;
+
+  position: fixed; /* Position it relative to the 'app-container' */
+  top: var(--header-height); /* Start below the header */
+  bottom: var(--footer-height); /* End above the footer */
+
+  width: calc(49vw - (var(--main-content-padding) * 2));
+  left: 0%;
 
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -80,11 +76,8 @@ body, html, #root {
   bottom: 0; /* Align to the bottom of the parent (.app-container) */
   right: 0; /* Align to the right edge of the parent (.app-container) */
 
-  width: var(--detail-width); /* Set its width to 50vw (50% of viewport width) */
+  width: var(--detail-width); /* Set its width to 51vw */
 
-  /* Account for header and footer heights with padding within the detail section */
-  /*padding-top: calc(var(--header-height) + var(--main-content-padding));
-  padding-bottom: calc(var(--footer-height) + var(--main-content-padding));*/
   padding-left: 20px; /* Maintain your existing horizontal padding */
   padding-right: 20px; /* Maintain your existing horizontal padding */
   box-sizing: border-box; /* Include padding in the total width/height */
@@ -118,7 +111,6 @@ body, html, #root {
   color: #555;
   font-size: 1.1em;
 }
-
 
 /* MEDIA QUERY FOR SMALLER SCREENS */
 @media (max-width: 1023px) {

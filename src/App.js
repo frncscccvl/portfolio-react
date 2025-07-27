@@ -10,6 +10,7 @@ import './App.css';
 import designProject1Img from './assets/images/project-card-header/ucf-icon.png';
 import designProject2Img from './assets/images/project-card-header/blurate-icon.png';
 import designProject3Img from './assets/images/project-card-header/cli-icon.png';
+import designCVimg from './assets/images/project-card-header/cv-card.png';
 import engineeringProject1Img from './assets/images/project-card-header/fliffstar-card.png';
 import engineeringProject2Img from './assets/images/project-card-header/android-id-project-card.png';
 import writingProject1Img from './assets/images/project-card-header/peasantries-card.png';
@@ -18,16 +19,18 @@ import writingProject1Img from './assets/images/project-card-header/peasantries-
 import designProject1Header from './assets/images/designer-tab/sarc-sticker/sarc-sticker-header.png';
 import designProject2Header from './assets/images/designer-tab/blurate/blurate-mockup.png';
 import designProject3Header from './assets/images/designer-tab/terminal-widgets/widgets-header.svg';
+import designCvHeader from './assets/images/designer-tab/cv/cv.svg';
 import engineeringProject1Header from './assets/images/engineer-tab/fliffstar/fliffstar-header.png';
 import writingProject1Header from './assets/images/writer-tab/peasantries/peasantries-landscape-mode.svg';
 
 // --- Dummy Data (Placeholder) ---
-// IMPORTANT: Populate this with your actual project data!
+// IMPORTANT: Populate this with actual project data!
 const allProjectsData = {
   designer: [
     { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, shortDesc: 'Helping increase pass rates for first year undergrads', headerImage: designProject1Header },
     { id: 'd2', title: '(blur-ATE)', image: designProject2Img, shortDesc: 'A brief description of design project 2.', headerImage: designProject2Header },
     { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, shortDesc: 'A brief description of design project 3.', headerImage: designProject3Header },
+    { id: 'd4', title: 'CV', image: designCVimg, headerImage: designCvHeader }
   ],
   engineer: [
     { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, shortDesc: 'A sportsbetting parlay ponderer.', headerImage: engineeringProject1Header },
