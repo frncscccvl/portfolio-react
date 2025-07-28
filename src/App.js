@@ -30,7 +30,7 @@ const allProjectsData = {
     { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, shortDesc: 'Helping increase pass rates for first year undergrads', headerImage: designProject1Header },
     { id: 'd2', title: '(blur-ATE)', image: designProject2Img, shortDesc: 'A brief description of design project 2.', headerImage: designProject2Header },
     { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, shortDesc: 'A brief description of design project 3.', headerImage: designProject3Header },
-    { id: 'd4', title: 'CV', image: designCVimg, headerImage: designCvHeader }
+    { id: 'd4', title: 'CV', image: designCVimg, headerImage: designCvHeader },
   ],
   engineer: [
     { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, shortDesc: 'A sportsbetting parlay ponderer.', headerImage: engineeringProject1Header },

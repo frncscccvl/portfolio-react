@@ -15,7 +15,8 @@ body, html, #root {
 }
 
 .app-container {
-  display: block;
+  display: flex;
+  flex-direction: column;
   position: relative; /* This is the positioning context for the absolute ProjectDetail */
   min-height: 100vh;
   /* overflow: hidden; Removed this here if it's already on body/html to avoid double hidden */
@@ -33,10 +34,9 @@ body, html, #root {
 .main-content.desktop-only {
   display: flex;
   flex-grow: 1; /* Allow main-content to take all vertical space between header/footer */
-  /* Remove explicit height here, let flexbox handle it */
   overflow: hidden;
+  box-sizing: border-box;
   width: 49vw;
-  height: calc(100vh - (var(--header-height)) - (var(--footer-height)));
 }
 
 /* Left side: Project Cards section (Grid for cards themselves) */
@@ -46,20 +46,17 @@ body, html, #root {
   flex-shrink: 1; /* Allow it to shrink */
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 8px;
   padding: 10px;
-  height: 69%;
+  height: 100%;
   overflow-y: auto;
+  box-sizing: border-box;
 
-  position: fixed; /* Position it relative to the 'app-container' */
-  top: var(--header-height); /* Start below the header */
-  bottom: var(--footer-height); /* End above the footer */
-
-  width: calc(49vw - (var(--main-content-padding) * 2));
-  left: 0%;
-
+  position: relative; /* Position it relative to the 'app-container' */
+  margin-top: var(--header-height); /* Start below the header */
+  margin-bottom: var(--footer-height); /* End above the footer */
+  max-height: 570px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;

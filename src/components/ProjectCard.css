@@ -3,8 +3,9 @@
 .project-card {
   /* This is the main container for the card */
   width: 100%; /* Take full width of its grid cell */
-  min-width: 190px;
-  
+  min-width: 0;
+  min-height: 0;  
+
   /* THIS IS THE MAGIC: Defines a 1:1 aspect ratio */
   aspect-ratio: 1 / 1; 
   
