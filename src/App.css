@@ -3,6 +3,11 @@
   src: url("assets/fonts/ChromaticaTrial-Regular.otf");
 }
 
+@font-face {
+  font-family: "JetBrainsMono";
+  src: url("assets/fonts/JetBrainsMono-Regular.ttf");
+}
+
 /* Basic reset and global styling */
 body, html, #root {
   background-color: #E8E6E2; /* Your chosen background color */
@@ -36,7 +41,14 @@ body, html, #root {
   flex-grow: 1; /* Allow main-content to take all vertical space between header/footer */
   overflow: hidden;
   box-sizing: border-box;
-  width: 49vw;
+
+  width: 100vw; /* Start at 100vw */
+  transition: width 0.05s ease-in-out; /* Smooth transition for width changes */
+}
+
+.app-container.project-detail-active .main-content.desktop-only {
+  width: 49vw; /* Shrink to 49vw when detail is active */
+  /*justify-content: flex-start;*/ /* Align cards to the start when detail is open */
 }
 
 /* Left side: Project Cards section (Grid for cards themselves) */
@@ -50,13 +62,14 @@ body, html, #root {
   gap: 8px;
   padding: 10px;
   height: 100%;
+  max-height: calc(100vh - 175px);
   overflow-y: auto;
   box-sizing: border-box;
 
   position: relative; /* Position it relative to the 'app-container' */
   margin-top: var(--header-height); /* Start below the header */
   margin-bottom: var(--footer-height); /* End above the footer */
-  max-height: 35.4em;
+
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -84,6 +97,10 @@ body, html, #root {
 
 .detail-section.detail-active {
   border-left: 1px solid #333; 
+  
+  /*.main-content.desktop-only {
+    width: 49vw;
+  }*/ 
 }
 
 /* Placeholder styles */
