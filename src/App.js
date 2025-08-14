@@ -31,7 +31,7 @@ const allProjectsData = {
     { id: 'd2', title: '(blur-ATE)', image: designProject2Img, shortDesc: 'A brief description of design project 2.', headerImage: designProject2Header },
     { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, shortDesc: 'A brief description of design project 3.', headerImage: designProject3Header },
     { id: 'd4', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    /*{ id: 'd5', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd5', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd6', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd7', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd8', title: 'CV', image: designCVimg, headerImage: designCvHeader },
@@ -44,7 +44,7 @@ const allProjectsData = {
     { id: 'd15', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd16', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd17', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd18', title: 'CV', image: designCVimg, headerImage: designCvHeader },*/
+    { id: 'd18', title: 'CV', image: designCVimg, headerImage: designCvHeader },
   ],
   engineer: [
     { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, shortDesc: 'A sportsbetting parlay ponderer.', headerImage: engineeringProject1Header },

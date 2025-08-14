@@ -74,7 +74,13 @@ const Footer = ({ onTabClick, activeTab }) => {
         >
           writer
         </span></div>
-        &nbsp;scientist
+        &nbsp;
+        <span
+          className={`clickable-word ${activeTab === null ? 'active' : ''}`}
+          onClick={() => handleInternalTabClick(null)}
+        >
+          scientist
+        </span>
       </p>
     </div>
   );
