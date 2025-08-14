@@ -34,7 +34,17 @@ const allProjectsData = {
     /*{ id: 'd5', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd6', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd7', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd8', title: 'CV', image: designCVimg, headerImage: designCvHeader },*/
+    { id: 'd8', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd9', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd10', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd11', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd12', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd13', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd14', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd15', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd16', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd17', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd18', title: 'CV', image: designCVimg, headerImage: designCvHeader },*/
   ],
   engineer: [
     { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, shortDesc: 'A sportsbetting parlay ponderer.', headerImage: engineeringProject1Header },
@@ -45,20 +55,30 @@ const allProjectsData = {
   ],
 };
 
+const allProjectsArray = Object.values(allProjectsData).flat();
+
 function App() {
   const [activeTab, setActiveTab] = useState(null); // Default to 'null'
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const projectsInActiveTab = allProjectsData[activeTab] || [];
+  const projectsToDisplay = activeTab ? allProjectsData[activeTab] : allProjectsArray;
+  //const projectsInActiveTab = allProjectsData[activeTab] || [];
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
     setSelectedProject(null); // Clear selected project when changing tabs
   };
 
-  const handleCardClick = (projectId) => {
+  /* Code to handle projects hidden on landing page. (Option A) */
+  /*const handleCardClick = (projectId) => {
     const project = projectsInActiveTab.find(p => p.id === projectId);
+    setSelectedProject(project);
+  };*/
+
+  /* Code to handle all projects visible on landing page. (Option B) */
+  const handleCardClick = (projectId) => {
+    const project = projectsToDisplay.find(p => p.id === projectId);
     setSelectedProject(project);
   };
 
@@ -93,7 +113,8 @@ function App() {
         <main className="main-content desktop-only">
           {/* Left side: Project Cards based on active tab */}
           <div className="cards-section">
-            {activeTab === null ? (
+            {/* Option A: Let project be hidden on landing page. */}
+            {/*{activeTab === null ? (
               <p className="placeholder-text"></p>
             ) : projectsInActiveTab.length > 0 ? (
               projectsInActiveTab.map(project => (
@@ -106,6 +127,19 @@ function App() {
               ))
             ) : (
               <p className="no-projects-message">No projects found for this category yet.</p>
+            )}*/}
+            {/* Option B: Show all projects on landing page. */}
+            {projectsToDisplay.length > 0 ? (
+              projectsToDisplay.map(project => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  onClick={handleCardClick}
+                  isSelected={selectedProject && selectedProject.id === project.id}
+                />
+              ))
+            ) : (
+              <p className="no-projects-message">No projects found.</p>
             )}
           </div>
 
