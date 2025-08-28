@@ -27,11 +27,11 @@ import writingProject1Header from './assets/images/writer-tab/peasantries/peasan
 // IMPORTANT: Populate this with actual project data!
 const allProjectsData = {
   designer: [
-    { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, shortDesc: 'Helping increase pass rates for first year undergrads', headerImage: designProject1Header },
-    { id: 'd2', title: '(blur-ATE)', image: designProject2Img, shortDesc: 'A brief description of design project 2.', headerImage: designProject2Header },
-    { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, shortDesc: 'A brief description of design project 3.', headerImage: designProject3Header },
-    { id: 'd4', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd5', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, categories: 'app concept', headerImage: designProject1Header },
+    { id: 'd2', title: '(blur-ATE)', image: designProject2Img, categories: 'app concept', headerImage: designProject2Header },
+    { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, categories: 'ux design', headerImage: designProject3Header },
+    { id: 'd4', title: 'CV', categories: 'cv', image: designCVimg, headerImage: designCvHeader },
+    /*{ id: 'd5', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd6', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd7', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd8', title: 'CV', image: designCVimg, headerImage: designCvHeader },
@@ -44,25 +44,45 @@ const allProjectsData = {
     { id: 'd15', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd16', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd17', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd18', title: 'CV', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd18', title: 'CV', image: designCVimg, headerImage: designCvHeader },*/
   ],
   engineer: [
-    { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, shortDesc: 'A sportsbetting parlay ponderer.', headerImage: engineeringProject1Header },
-    { id: 'e2', title: 'Business Card', image: engineeringProject2Img, shortDesc: 'A brief description of engineering project 2.' },
+    { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, categories: 'engineering', headerImage: engineeringProject1Header },
+    { id: 'e2', title: 'Business Card', image: engineeringProject2Img, categories: 'engineering' },
   ],
   writer: [
-    { id: 'w1', title: 'Peasantries: An Introductory', image: writingProject1Img, shortDesc: 'A brief description of writing project 1.', headerImage: writingProject1Header },
+    { id: 'w1', title: 'Peasantries: An Introductory', categories: 'writing', headerImage: writingProject1Header },
   ],
 };
 
-const allProjectsArray = Object.values(allProjectsData).flat();
+/**
+ * Shuffles an array in-place using the Fisher-Yates algorithm.
+ * @param {Array} array The array to shuffle.
+ */
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    // Pick a random index from 0 to i
+    const j = Math.floor(Math.random() * (i + 1));
+
+    // Swap elements i and j
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+const allProjectsWithCategories = Object.keys(allProjectsData).flatMap(category =>
+  allProjectsData[category].map(project => ({ ...project, category }))
+);
+
+shuffleArray(allProjectsWithCategories);
 
 function App() {
   const [activeTab, setActiveTab] = useState(null); // Default to 'null'
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  const projectsToDisplay = activeTab ? allProjectsData[activeTab] : allProjectsArray;
+  const projectsToDisplay = activeTab
+    ? allProjectsWithCategories.filter(project => project.category === activeTab)
+    : allProjectsWithCategories;
   //const projectsInActiveTab = allProjectsData[activeTab] || [];
 
   const handleTabClick = (tabName) => {
@@ -81,14 +101,6 @@ function App() {
     const project = projectsToDisplay.find(p => p.id === projectId);
     setSelectedProject(project);
   };
-
-  // Set 'designer' as the default active tab after the initial render (optional)
-  // This will make sure cards appear immediately on load if you want that
-  /*React.useEffect(() => {
-    if (activeTab === null && Object.keys(allProjectsData).length > 0) {
-      setActiveTab('designer'); // Or whatever default tab you prefer
-    }
-  }, [activeTab]);*/
 
   // Effect to determine if it's a mobile screen based on width
   useEffect(() => {
@@ -136,6 +148,7 @@ function App() {
                   project={project}
                   onClick={handleCardClick}
                   isSelected={selectedProject && selectedProject.id === project.id}
+                  category={project.category}
                 />
               ))
             ) : (

@@ -1,25 +1,24 @@
-// components/ProjectCard.js
 import React from 'react';
-import './ProjectCard.css'; // Don't forget to import the CSS!
+import './ProjectCard.css';
 
-const ProjectCard = ({ project, onClick, isSelected }) => {
+const ProjectCard = ({ project, onClick, isSelected, category }) => {
   const handleClick = () => {
     onClick(project.id);
   };
 
   return (
     <div
-      className={`project-card ${isSelected ? 'selected' : ''}`}
+      className={`project-card ${category} ${isSelected ? 'selected' : ''}`}
       onClick={handleClick}
     >
-      <img
+      {/*<img
         src={project.image}
-        alt={project.title}
         className="project-card-image"
-      />
+      />*/}
       {/* Content can be directly inside the .project-card now that it's a flex container */}
-      {/*<h3>{project.title}</h3>
-      <p>{project.shortDesc}</p>*/}
+      {/*<h3>{project.title}</h3>*/}
+      <h4>{project.categories}</h4>
+      {/*<p></p>*/}
     </div>
   );
 };

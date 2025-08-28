@@ -9,26 +9,39 @@
   /* THIS IS THE MAGIC: Defines a 1:1 aspect ratio */
   aspect-ratio: 1 / 1; 
   
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
   overflow: hidden; /* Hide anything that goes outside the square */
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 
   /* Use flexbox to easily position content within the card */
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Align content to the bottom */
-  align-items: center; /* Center horizontally */
+  flex-direction: row;
+  justify-content: flex-start; /* Align content to the bottom */
+  /*align-items: flex-start;*/ /* Center horizontally */
   padding: 10px; /* Internal padding for content */
   box-sizing: border-box; /* Include padding in the element's total size */
-  text-align: center;
+  /*text-align: center;*/
   position: relative; /* For image positioning if it's absolute */
 }
 
 .project-card.selected {
   border: 2px solid #F28500;
+}
+
+/* Background colors for each category */
+.designer {
+  background-color: #DCD7D2;
+}
+
+.engineer {
+  background-color: #D3D8E0; /* A cool, technical tone */
+}
+
+.writer {
+  background-color: #E0D3C9; /* A warm, inviting tone */
 }
 
 .project-card-image {
@@ -41,8 +54,14 @@
   z-index: 1; /* Ensure text is above image */
 }
 
-.project-card h3,
+.project-card h4,
 .project-card p {
   z-index: 2; /* Ensure text is above image */
+  width: 100%;
   /* Other text styles */
+  /*position: absolute;*/
+  top: 2px;
+  left: 2px;
+  padding: 0;
+  margin: 0;
 }
