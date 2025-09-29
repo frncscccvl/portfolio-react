@@ -11,9 +11,7 @@
   
   background-color: #fff;
   border-radius: 16px;
-  /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
   overflow: hidden; /* Hide anything that goes outside the square */
-  cursor: pointer;
   transition: transform 0.2s ease-in-out;
 
   /* Use flexbox to easily position content within the card */
@@ -58,8 +56,7 @@
   z-index: 1; /* Ensure text is above image */
 }
 
-.project-card h4,
-.project-card p {
+.project-card h4 {
   z-index: 2; /* Ensure text is above image */
   width: 100%;
   /* Other text styles */
@@ -71,7 +68,10 @@
 }
 
 .project-card h5 {
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
