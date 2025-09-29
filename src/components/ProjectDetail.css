@@ -8,7 +8,7 @@
 }
 
 .project-detail-header-image-container {
-  width: calc(100% - 1px); /* Span full width of the detail section, accounting for its padding */
+  width: 100%; /* Span full width of the detail section, accounting for its padding */
   margin-left: auto; /* Pull it to the left to cover the padding */
   margin-right: auto; /* Pull it to the right to cover the padding */
   margin-top: -20px; /* Pull it up to sit right at the top edge of the card */

@@ -133,3 +133,13 @@ body, html, #root {
     display: none;
   }
 }
+
+@media (max-width:1500px) and (min-width: 1024px) {
+  .detail-section {
+    width: 60vw;
+  }
+  
+  .app-container.project-detail-active .main-content.desktop-only {
+    width: 40vw;
+  }
+}

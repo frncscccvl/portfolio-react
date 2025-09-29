@@ -18,8 +18,8 @@
 
   /* Use flexbox to easily position content within the card */
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start; /* Align content to the bottom */
+  flex-direction: column;
+  justify-content: space-between; /* Align content to the bottom */
   /*align-items: flex-start;*/ /* Center horizontally */
   padding: 10px; /* Internal padding for content */
   box-sizing: border-box; /* Include padding in the element's total size */

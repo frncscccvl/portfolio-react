@@ -5,7 +5,7 @@ const Header = () => {
 
   return(
     <div className="header">
-      <p>@frncscccvl / <span className="header-subtext">portfolio</span></p>
+      <p>@frncscccvl &#47;&#47; <span className="header-subtext">portfolio</span></p>
     </div>
   );
 }

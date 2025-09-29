@@ -27,10 +27,10 @@ import writingProject1Header from './assets/images/writer-tab/peasantries/peasan
 // IMPORTANT: Populate this with actual project data!
 const allProjectsData = {
   designer: [
-    { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, categories: 'app concept', headerImage: designProject1Header },
-    { id: 'd2', title: '(blur-ATE)', image: designProject2Img, categories: 'app concept', headerImage: designProject2Header },
-    { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, categories: 'ux design', headerImage: designProject3Header },
-    { id: 'd4', title: 'CV', categories: 'cv', image: designCVimg, headerImage: designCvHeader },
+    { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, categories: 'app concept, ux', subtext: '[sarc-sticker]', headerImage: designProject1Header },
+    { id: 'd2', title: '(blur-ATE)', image: designProject2Img, categories: 'app concept', subtext: '[blur-ATE]', headerImage: designProject2Header },
+    { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, categories: 'app concept, ux', subtext: '[terminal widgets]', headerImage: designProject3Header },
+    { id: 'd4', title: 'CV', categories: 'cv', subtext: '[curriculum vitae]', image: designCVimg, headerImage: designCvHeader },
     /*{ id: 'd5', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd6', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd7', title: 'CV', image: designCVimg, headerImage: designCvHeader },
@@ -45,13 +45,18 @@ const allProjectsData = {
     { id: 'd16', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd17', title: 'CV', image: designCVimg, headerImage: designCvHeader },
     { id: 'd18', title: 'CV', image: designCVimg, headerImage: designCvHeader },*/
+    /* companies to make ux design case studies against:
+        nike
+        nytimes
+        reddit
+    */
   ],
   engineer: [
-    { id: 'e1', title: 'Fliffstar', image: engineeringProject1Img, categories: 'engineering', headerImage: engineeringProject1Header },
-    { id: 'e2', title: 'Business Card', image: engineeringProject2Img, categories: 'engineering' },
+    { id: 'e1', title: 'Fliffstar', subtext: '[fliffstar]', image: engineeringProject1Img, categories: 'engineering', headerImage: engineeringProject1Header },
+    { id: 'e2', title: 'Business Card', subtext: '[business card]', image: engineeringProject2Img, categories: 'engineering' },
   ],
   writer: [
-    { id: 'w1', title: 'Peasantries: An Introductory', categories: 'writing', headerImage: writingProject1Header },
+    { id: 'w1', title: 'Peasantries: An Introductory', categories: 'writing', subtext: '[peasantries: an intro]', headerImage: writingProject1Header },
   ],
 };
 
