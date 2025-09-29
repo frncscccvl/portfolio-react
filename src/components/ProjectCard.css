@@ -11,6 +11,7 @@
   
   background-color: #fff;
   border-radius: 16px;
+  cursor: default;
   overflow: hidden; /* Hide anything that goes outside the square */
   transition: transform 0.2s ease-in-out;
 
