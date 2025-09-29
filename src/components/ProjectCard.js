@@ -16,10 +16,9 @@ const ProjectCard = ({ project, onClick, isSelected, category }) => {
         className="project-card-image"
       />*/}
       {/* Content can be directly inside the .project-card now that it's a flex container */}
-      {/*<h3>{project.title}</h3>*/}
       <h4>{project.categories}</h4>
+      <h5>&nbsp;</h5>
       <h4>{project.subtext}</h4>
-      {/*<p></p>*/}
     </div>
   );
 };
