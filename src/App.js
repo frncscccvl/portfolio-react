@@ -6,59 +6,7 @@ import ProjectDetail from './components/ProjectDetail';
 import MobileChatbotView from './components/MobileChatbotView';
 import './App.css';
 
-/* Project card images*/
-import designProject1Img from './assets/images/project-card-header/ucf-icon.png';
-import designProject2Img from './assets/images/project-card-header/blurate-icon.png';
-import designProject3Img from './assets/images/project-card-header/cli-icon.png';
-import designCVimg from './assets/images/project-card-header/cv-card.png';
-import engineeringProject1Img from './assets/images/project-card-header/fliffstar-card.png';
-import engineeringProject2Img from './assets/images/project-card-header/android-id-project-card.png';
-import writingProject1Img from './assets/images/project-card-header/peasantries-card.png';
-
-/* Project header images */
-import designProject1Header from './assets/images/designer-tab/sarc-sticker/sarc-sticker-header.png';
-import designProject2Header from './assets/images/designer-tab/blurate/blurate-mockup.png';
-import designProject3Header from './assets/images/designer-tab/terminal-widgets/widgets-header.svg';
-import designCvHeader from './assets/images/designer-tab/cv/cv.svg';
-import engineeringProject1Header from './assets/images/engineer-tab/fliffstar/fliffstar-header.png';
-import writingProject1Header from './assets/images/writer-tab/peasantries/peasantries-landscape-mode.svg';
-
-// --- Dummy Data (Placeholder) ---
-// IMPORTANT: Populate this with actual project data!
-const allProjectsData = {
-  designer: [
-    { id: 'd1', title: 'SARC-Sticker', image: designProject1Img, categories: 'app concept, ux', subtext: '[sarc-sticker]', headerImage: designProject1Header },
-    { id: 'd2', title: '(blur-ATE)', image: designProject2Img, categories: 'app concept', subtext: '[blur-ATE]', headerImage: designProject2Header },
-    { id: 'd3', title: 'Terminal Widgets', image: designProject3Img, categories: 'app concept, ux', subtext: '[terminal widgets]', headerImage: designProject3Header },
-    { id: 'd4', title: 'CV', categories: 'cv', subtext: '[curriculum vitae]', image: designCVimg, headerImage: designCvHeader },
-    /*{ id: 'd5', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd6', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd7', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd8', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd9', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd10', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd11', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd12', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd13', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd14', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd15', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd16', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd17', title: 'CV', image: designCVimg, headerImage: designCvHeader },
-    { id: 'd18', title: 'CV', image: designCVimg, headerImage: designCvHeader },*/
-    /* companies to make ux design case studies against:
-        nike
-        nytimes
-        reddit
-    */
-  ],
-  engineer: [
-    { id: 'e1', title: 'Fliffstar', subtext: '[fliffstar]', image: engineeringProject1Img, categories: 'engineering', headerImage: engineeringProject1Header },
-    { id: 'e2', title: 'Business Card', subtext: '[business card]', image: engineeringProject2Img, categories: 'engineering' },
-  ],
-  writer: [
-    { id: 'w1', title: 'Peasantries: An Introductory', categories: 'writing', subtext: '[peasantries: an intro]', headerImage: writingProject1Header },
-  ],
-};
+import { allProjectsData } from './utils/ProjectData.js';
 
 /**
  * Shuffles an array in-place using the Fisher-Yates algorithm.

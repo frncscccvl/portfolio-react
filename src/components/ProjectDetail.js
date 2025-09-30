@@ -12,48 +12,110 @@ const ProjectDetail = ({ project }) => {
   }
 
   // Destructure project properties for easier access
-  const { title, longDesc, technologies, liveLink, githubLink, headerImage } = project;
+  const { title, category, headerImage, longDesc } = project;
+
+  const renderTemplate = (category) => {
+    switch (category) {
+      case 'designer':
+        return (
+          //--- DESIGN TEMPLATE ---
+          <>
+
+          </>
+        );
+
+      case 'engineer':
+        return (
+          // --- ENGINEERING TEMPLATE ---
+          <>
+
+
+          </>
+        );
+
+      case 'writer':
+        return (
+          // --- WRITING TEMPLATE ---
+          <>
+            {project.prompt && (
+              <section>
+                <h3>Prompt</h3>
+                <p>{project.prompt}</p>
+              </section>
+            )}
+
+            {project.thesis && (
+              <section>
+                <h3>Thesis / Goal</h3>
+                <p>{project.thesis || 'Not specified yet.'}</p>
+              </section>
+            )}
+
+            {project.image && (
+              <section>
+                <img
+                  src={project.image}
+                  alt={project.title} // Always include alt text for accessibility!
+                  className="project-detail-image"
+                />
+              </section>
+            )}
+
+            {project.paragraphOneContents && (
+              <section>
+                <h3>{project.paragraphOneTitle}</h3>
+                <p>{project.paragraphOneContents}</p>
+              </section>
+            )}
+
+            {project.paragraphTwoContents && (
+              <section>
+                <h3>{project.paragraphTwoTitle || 'Paragraph 2'}</h3>
+                <p>{project.paragraphTwoContents}</p>
+              </section>
+            )}
+
+            {project.paragraphThreeContents && (
+              <section>
+                <h3>{project.paragraphThreeTitle || 'Paragraph 3'}</h3>
+                <p>{project.paragraphThreeContents}</p>
+              </section>
+            )}
+
+            {project.paragraphFourContents && (
+                <section>
+                    <h3>{project.paragraphFourTitle || 'Paragraph 4'}</h3>
+                    <p>{project.paragraphFourContents}</p>
+                </section>
+            )}
+
+            {project.paragraphFiveContents && (
+                <section>
+                    <h3>{project.paragraphFiveTitle || 'Paragraph 5'}</h3>
+                    <p>{project.paragraphFiveContents}</p>
+                </section>
+            )}
+
+            <h1></h1>
+          </>
+        );
+    }
+  };
 
   return (
     <div className="project-detail">
       <p className="project-detail-title">{title}</p>
       <p className="project-detail-description">{longDesc}</p>
 
-      {technologies && technologies.length > 0 && (
-        <div className="project-detail-section">
-          <h3 className="project-detail-section-title">Technologies Used:</h3>
-          <ul className="project-detail-tech-list">
-            {technologies.map((tech, index) => (
-              <li key={index}>{tech}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {(liveLink || githubLink) && (
-        <div className="project-detail-links project-detail-section">
-          <h3 className="project-detail-section-title">Links:</h3>
-          {liveLink && (
-            <a href={liveLink} target="_blank" rel="noopener noreferrer" className="project-detail-link">
-              View Live Project
-              <span className="icon-external-link">↗</span> {/* Optional external link icon */}
-            </a>
-          )}
-          {githubLink && (
-            <a href={githubLink} target="_blank" rel="noopener noreferrer" className="project-detail-link">
-              GitHub Repository
-              <span className="icon-github"></span> {/* Optional GitHub icon */}
-            </a>
-          )}
-        </div>
-      )}
-
-      {/* Add more sections here as needed, e.g., screenshots, video links, your role, challenges, solutions */}
       {headerImage && (
         <div className="project-detail-header-image-container">
           <img src={headerImage} alt={`${title} header`} className="project-detail-header-image" />
         </div>
       )}
+
+      <div className="project-detail-content">
+        {renderTemplate(project.category)}
+      </div>
     </div>
   );
 };

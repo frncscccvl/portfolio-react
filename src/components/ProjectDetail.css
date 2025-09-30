@@ -127,3 +127,9 @@
 .placeholder-detail {
   /* You can customize if you want different centering/styling than App.css default */
 }
+
+.project-detail-image {
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+} 
