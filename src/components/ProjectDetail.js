@@ -96,6 +96,27 @@ const ProjectDetail = ({ project }) => {
                 </section>
             )}
 
+            {project.paragraphSixContents && (
+                <section>
+                    <h3>{project.paragraphSixTitle || 'Paragraph 6'}</h3>
+                    <p>{project.paragraphSixContents}</p>
+                </section>
+            )}
+
+            {project.paragraphSevenContents && (
+                <section>
+                    <h3>{project.paragraphSevenTitle || 'Paragraph 7'}</h3>
+                    <p>{project.paragraphSevenContents}</p>
+                </section>
+            )}
+
+            {project.paragraphEightContents && (
+                <section>
+                    <h3>{project.paragraphEightTitle || 'Paragraph 8'}</h3>
+                    <p>{project.paragraphEightContents}</p>
+                </section>
+            )}
+
             <h1></h1>
           </>
         );

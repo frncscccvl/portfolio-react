@@ -53,7 +53,8 @@ body, html, #root {
 
 /* Left side: Project Cards section (Grid for cards themselves) */
 .cards-section {
-  flex-basis: 50%; /* Start with 50% width */
+  flex-basis: 0;
+  /*flex-basis: 50%;*/ /* Start with 50% width */
   flex-grow: 1; /* Allow it to grow if space available */
   flex-shrink: 1; /* Allow it to shrink */
 
@@ -61,8 +62,12 @@ body, html, #root {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 8px;
   padding: 10px;
+
   height: 100%;
+  min-height: 0;
   max-height: calc(100vh - 175px);
+  max-width: 100%;
+
   overflow-y: auto;
   box-sizing: border-box;
 
