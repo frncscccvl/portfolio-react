@@ -123,6 +123,6 @@
 @media (max-width: 1023px) {
   .footer p {
     justify-content: center;
-    align-items: center;
+    margin-top: 12px;
   }
 } 

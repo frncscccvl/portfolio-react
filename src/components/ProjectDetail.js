@@ -51,6 +51,20 @@ const ProjectDetail = ({ project }) => {
               </section>
             )}
 
+            {project.preface && (
+              <section>
+                <h3>Preface</h3>
+                <p>{project.preface || 'Not specified yet.'}</p>
+              </section>
+            )}
+
+            {project.contents && (
+              <section>
+                <h3>Contents</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.contents }} />
+              </section>
+            )}
+
             {project.image && (
               <section>
                 <img
@@ -64,35 +78,35 @@ const ProjectDetail = ({ project }) => {
             {project.paragraphOneContents && (
               <section>
                 <h3>{project.paragraphOneTitle}</h3>
-                <p>{project.paragraphOneContents}</p>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphOneContents }} />
               </section>
             )}
 
             {project.paragraphTwoContents && (
               <section>
                 <h3>{project.paragraphTwoTitle || 'Paragraph 2'}</h3>
-                <p>{project.paragraphTwoContents}</p>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphTwoContents }} />
               </section>
             )}
 
             {project.paragraphThreeContents && (
               <section>
                 <h3>{project.paragraphThreeTitle || 'Paragraph 3'}</h3>
-                <p>{project.paragraphThreeContents}</p>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphThreeContents }} />
               </section>
             )}
 
             {project.paragraphFourContents && (
                 <section>
                     <h3>{project.paragraphFourTitle || 'Paragraph 4'}</h3>
-                    <p>{project.paragraphFourContents}</p>
+                    <p dangerouslySetInnerHTML={{ __html: project.paragraphFourContents }} />
                 </section>
             )}
 
             {project.paragraphFiveContents && (
                 <section>
                     <h3>{project.paragraphFiveTitle || 'Paragraph 5'}</h3>
-                    <p>{project.paragraphFiveContents}</p>
+                    <p dangerouslySetInnerHTML={{ __html: project.paragraphFiveContents }} />
                 </section>
             )}
 
