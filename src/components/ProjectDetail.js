@@ -28,7 +28,15 @@ const ProjectDetail = ({ project }) => {
         return (
           // --- ENGINEERING TEMPLATE ---
           <>
-
+            {project.image && (
+              <section>
+                <img
+                  src={project.image}
+                  alt={project.title} // Always include alt text for accessibility!
+                  className="project-detail-image"
+                />
+              </section>
+            )}
 
           </>
         );
@@ -62,6 +70,13 @@ const ProjectDetail = ({ project }) => {
               <section>
                 <h3>Contents</h3>
                 <p dangerouslySetInnerHTML={{ __html: project.contents }} />
+              </section>
+            )}
+
+            {project.sideboard && (
+              <section>
+                <h3>Sideboard</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.sideboard }} />
               </section>
             )}
 
@@ -113,21 +128,21 @@ const ProjectDetail = ({ project }) => {
             {project.paragraphSixContents && (
                 <section>
                     <h3>{project.paragraphSixTitle || 'Paragraph 6'}</h3>
-                    <p>{project.paragraphSixContents}</p>
+                    <p dangerouslySetInnerHTML={{ __html: project.paragraphSixContents }} />
                 </section>
             )}
 
             {project.paragraphSevenContents && (
                 <section>
                     <h3>{project.paragraphSevenTitle || 'Paragraph 7'}</h3>
-                    <p>{project.paragraphSevenContents}</p>
+                    <p dangerouslySetInnerHTML={{ __html: project.paragraphSevenContents }} />
                 </section>
             )}
 
             {project.paragraphEightContents && (
                 <section>
                     <h3>{project.paragraphEightTitle || 'Paragraph 8'}</h3>
-                    <p>{project.paragraphEightContents}</p>
+                    <p dangerouslySetInnerHTML={{ __html: project.paragraphEightContents }} />
                 </section>
             )}
 
@@ -140,13 +155,7 @@ const ProjectDetail = ({ project }) => {
   return (
     <div className="project-detail">
       <p className="project-detail-title">{title}</p>
-      <p className="project-detail-description">{longDesc}</p>
-
-      {headerImage && (
-        <div className="project-detail-header-image-container">
-          <img src={headerImage} alt={`${title} header`} className="project-detail-header-image" />
-        </div>
-      )}
+      {/*<p className="project-detail-description">{longDesc}</p>*/}
 
       <div className="project-detail-content">
         {renderTemplate(project.category)}
