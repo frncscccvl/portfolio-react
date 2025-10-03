@@ -20,7 +20,72 @@ const ProjectDetail = ({ project }) => {
         return (
           //--- DESIGN TEMPLATE ---
           <>
+            {project.prompt && (
+              <section>
+                <h3>Prompt</h3>
+                <p>{project.prompt}</p>
+              </section>
+            )}
 
+            {project.thesis && (
+              <section>
+                <h3>Thesis</h3>
+                <p>{project.thesis}</p>
+              </section>
+            )}
+
+            {project.image && (
+              <section>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="project-detail-image"
+                />
+              </section>
+            )}
+
+            {project.paragraphOneContents && (
+              <section>
+                <h3>{project.paragraphOneTitle || 'Paragraph 1'}</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphOneContents }} />
+              </section>
+            )}
+
+            {project.imageTwo && (
+              <section>
+                <img
+                  src={project.imageTwo}
+                  alt={project.title} // Always include alt text for accessibility!
+                  className="project-detail-image"
+                />
+              </section>
+            )}
+
+            {project.paragraphTwoContents && (
+              <section>
+                <h3>{project.paragraphTwoTitle || 'Paragraph 2'}</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphTwoContents }} />
+              </section>
+            )}
+
+            {project.paragraphThreeContents && (
+              <section>
+                <h3>{project.paragraphThreeTitle || 'Paragraph 3'}</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphThreeContents }} />
+              </section>
+            )}
+
+            {project.imageFour && (
+              <section>
+                <img
+                  src={project.imageFour}
+                  alt={project.title} // Always include alt text for accessibility!
+                  className="project-detail-image"
+                />
+              </section>
+            )}
+
+            <h1></h1>
           </>
         );
 
