@@ -54,9 +54,8 @@ body, html, #root {
 /* Left side: Project Cards section (Grid for cards themselves) */
 .cards-section {
   flex-basis: 0;
-  /*flex-basis: 50%;*/ /* Start with 50% width */
-  flex-grow: 1; /* Allow it to grow if space available */
-  flex-shrink: 1; /* Allow it to shrink */
+  flex-grow: 1;
+  flex-shrink: 1;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -68,6 +67,7 @@ body, html, #root {
   max-height: calc(100vh - 175px);
   max-width: 100%;
 
+  overflow: hidden;
   overflow-y: auto;
   box-sizing: border-box;
 
@@ -78,6 +78,12 @@ body, html, #root {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+.testFlex {
+  display: flex;
+  width: 100%;
+  width: 100%;
 }
 
 .cards-section::-webkit-scrollbar {
@@ -147,4 +153,18 @@ body, html, #root {
   .app-container.project-detail-active .main-content.desktop-only {
     width: 40vw;
   }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  /* Safari only override */
+  ::i-block-chrome,
+  .cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+
 }
