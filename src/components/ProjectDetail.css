@@ -131,5 +131,47 @@
 .project-detail-image {
   width: 100%;
   margin-top: 20px;
-  /*margin-bottom: 20px;*/
 } 
+
+.cv-exp-box-flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cv-exp-box-flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cv-exp-desc-box-flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cv-edu-box-flex-row {
+  display: flex;
+  /*justify-content: space-between;*/
+  
+  gap: 127px;
+  margin-top: 2.5em;
+}
+
+.cv-topics-box-flex {
+  display: flex;
+  /*justify-content: space-between;*/
+
+  gap: 160px;
+  margin-top: 2.5em;
+}
+
+.cv-topics-box-flex-content {
+  display: flex;
+  gap: 40px;
+}
+
+.cv-quote-box-flex {
+  margin-top: 2.5em;
+  text-align: center;
+}

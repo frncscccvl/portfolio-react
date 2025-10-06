@@ -214,6 +214,54 @@ const ProjectDetail = ({ project }) => {
             <h1></h1>
           </>
         );
+
+      case 'scientist':
+        return (
+          <>
+            {project.jobEntryOne && (
+              <section className="cv-exp-box-flex-row">
+                <p>experience</p>
+                <section className="cv-exp-box-flex-column">
+                  <p dangerouslySetInnerHTML={{ __html: project.jobEntryThree }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.jobEntryTwo }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.jobEntryOne }} />
+                </section>
+
+                <section className="cv-exp-desc-box-flex-column">
+                  <p dangerouslySetInnerHTML={{ __html: project.jobDescThree }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.jobDescTwo }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.jobDescOne }} />
+                </section>
+              </section>
+            )}
+
+            {project.educationDesc && (
+              <section className="cv-edu-box-flex-row">
+                <p>education</p>
+                <p dangerouslySetInnerHTML={{ __html: project.educationDesc }} />
+              </section>
+            )}
+
+            {project.topicsA && (
+              <section className="cv-topics-box-flex">
+                <p>topics</p>
+                <section className="cv-topics-box-flex-content">
+                  <p dangerouslySetInnerHTML={{ __html: project.topicsA }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.topicsB }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.topicsC }} />
+                </section>
+              </section>
+            )}
+
+            {project.quote && (
+              <section className="cv-quote-box-flex">
+                <p dangerouslySetInnerHTML={{ __html: project.quote }} />
+              </section>
+            )}
+
+            <h1></h1>
+          </>
+        );
     }
   };
 
