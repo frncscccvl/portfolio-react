@@ -177,3 +177,10 @@
   margin-top: 2.5em;
   text-align: center;
 }
+
+/* 'designer-tab' styles */
+.tab-image-flex-box {
+  display: flex; 
+
+  gap: 10px;
+}

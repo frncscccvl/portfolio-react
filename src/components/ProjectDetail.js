@@ -20,6 +20,17 @@ const ProjectDetail = ({ project }) => {
         return (
           //--- DESIGN TEMPLATE ---
           <>
+            {project.tabImage && (
+              <section className="tab-image-flex-box">
+                <p dangerouslySetInnerHTML={{ __html: project.hook }} />
+                <img
+                  src={project.tabImage}
+                  alt={project.title}
+                  className="project-tab-image"
+                />
+              </section>
+            )}
+
             {project.prompt && (
               <section>
                 <h3>Prompt</h3>
