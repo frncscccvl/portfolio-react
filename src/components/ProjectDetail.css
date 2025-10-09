@@ -179,8 +179,18 @@
 }
 
 /* 'designer-tab' styles */
-.tab-image-flex-box {
-  display: flex; 
+.project-tab-image {
+  float: right;
 
-  gap: 10px;
+  min-width: 280px;
+  max-height: 408px;
+
+  margin-left: 20px; 
+  margin-bottom: 10px;
+}
+
+.project-hook:after {
+  content: "";
+  display: table;
+  clear: both;
 }
