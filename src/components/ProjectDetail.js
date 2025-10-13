@@ -20,6 +20,20 @@ const ProjectDetail = ({ project }) => {
         return (
           //--- DESIGN TEMPLATE ---
           <>
+            {project.prompt && (
+              <section>
+                <h3>Prompt</h3>
+                <p>{project.prompt}</p>
+              </section>
+            )}
+
+            {project.thesis && (
+              <section>
+                <h3>Thesis / Goal</h3>
+                <p>{project.thesis || 'Not specified yet.'}</p>
+              </section>
+            )}
+
             {project.tabImage && (
               <section>
                 <div className="project-hook">
@@ -33,28 +47,44 @@ const ProjectDetail = ({ project }) => {
               </section>
             )}
 
-            {project.prompt && (
-              <section>
-                <h3>Prompt</h3>
-                <p>{project.prompt}</p>
-              </section>
+            {project.empathyStage && (
+              <div>
+                <h3>Methodology and Goal</h3>
+                <section>
+                  <p dangerouslySetInnerHTML={{ __html: project.empathyStage }} />
+                </section>
+              </div>
             )}
 
-            {project.thesis && (
-              <section>
-                <h3>Thesis</h3>
-                <p>{project.thesis}</p>
-              </section>
+            {project.defineStage && (
+              <div>
+                <h3>Persona Generation</h3>
+                <section>
+                  <p dangerouslySetInnerHTML={{ __html: project.defineStage }} />
+                </section>
+              </div>
             )}
 
-            {project.image && (
-              <section>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-detail-image"
-                />
-              </section>
+            {project.imageOptionOne && (
+              <div>
+              <h3>{project.paragraphOneTitle}</h3>
+                <section>
+                  <img
+                    src={project.imageOptionOne}
+                    alt={project.title}
+                    className="project-image-option-one"
+                  />
+                  <ol>
+                    <li>{project.listA}</li>
+                    <li>{project.listB}</li>
+                    <li>{project.listC}</li>
+                    <li>{project.listD}</li>
+                    <li>{project.listE}</li>
+                    <li>{project.listF}</li>
+                  </ol>
+                  <p dangerouslySetInnerHTML={{ __html: project.paragraphOptionOne }} />
+                </section>
+              </div>
             )}
 
             {project.paragraphOneContents && (

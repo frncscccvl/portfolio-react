@@ -194,3 +194,21 @@
   display: table;
   clear: both;
 }
+
+/*.section-flex-option {
+  display: flex;
+  gap: 10px;
+}*/
+
+ol li {
+  margin-bottom: 10px;
+}
+
+.project-image-option-one {
+  float: left;
+
+  margin-right: 30px;
+  margin-bottom: 10px;
+
+  width: 50%;
+}
