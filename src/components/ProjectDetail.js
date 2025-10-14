@@ -56,10 +56,15 @@ const ProjectDetail = ({ project }) => {
               </div>
             )}
 
-            {project.defineStage && (
+            {project.defineStage && project.personaImage && (
               <div>
                 <h3>Persona Generation</h3>
                 <section>
+                  <img
+                    src={project.personaImage}
+                    alt={project.title}
+                    className="persona-image"
+                  />
                   <p dangerouslySetInnerHTML={{ __html: project.defineStage }} />
                 </section>
               </div>

@@ -206,9 +206,13 @@ ol li {
 
 .project-image-option-one {
   float: left;
-
   margin-right: 30px;
   margin-bottom: 10px;
-
   width: 50%;
+}
+
+.persona-image {
+  float: right;
+  margin-left: 30px;
+  margin-bottom: 10px;
 }
