@@ -214,7 +214,7 @@ ol li {
 .project-image-option-left {
   float: left;
   margin-top: 15px;
-  margin-right: 10px;
+  margin-right: 5px;
   margin-bottom: 10px;
   width: 48.8%;
 }
@@ -222,7 +222,7 @@ ol li {
 .project-image-option-right {
   float: right;
   margin-top: 15px;
-  margin-left: 10px;
+  margin-left: 5px;
   margin-bottom: 10px;
   width:48.8%;
 }
