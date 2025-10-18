@@ -142,14 +142,14 @@
 .cv-exp-box-flex-column {
   display: flex;
   flex-direction: column;
-
+  justify-content: space-between;
   gap: 20px;
 }
 
 .cv-exp-desc-box-flex-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .cv-edu-box-flex-row {
@@ -204,11 +204,27 @@ ol li {
   margin-bottom: 10px;
 }
 
-.project-image-option-one {
+.project-image-option-list {
   float: left;
   margin-right: 30px;
   margin-bottom: 10px;
   width: 50%;
+}
+
+.project-image-option-left {
+  float: left;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 48.8%;
+}
+
+.project-image-option-right {
+  float: right;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width:48.8%;
 }
 
 .persona-image {

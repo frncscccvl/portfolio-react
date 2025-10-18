@@ -73,11 +73,12 @@ const ProjectDetail = ({ project }) => {
             {project.imageOptionOne && (
               <div>
               <h3>{project.paragraphOneTitle}</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphOptionOne }} />
                 <section>
                   <img
                     src={project.imageOptionOne}
                     alt={project.title}
-                    className="project-image-option-one"
+                    className="project-image-option-list"
                   />
                   <ol>
                     <li>{project.listA}</li>
@@ -87,7 +88,26 @@ const ProjectDetail = ({ project }) => {
                     <li>{project.listE}</li>
                     <li>{project.listF}</li>
                   </ol>
-                  <p dangerouslySetInnerHTML={{ __html: project.paragraphOptionOne }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.paragraphOptionTwo }} />
+                </section>
+              </div>
+            )}
+
+            {project.hifiMockupA && (
+              <div>
+              <h3>HiFi Visuals</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.hifiMockupADesc }} />
+                <section>
+                  <img
+                    src={project.hifiMockupA}
+                    alt={project.title}
+                    className="project-image-option-left"
+                  />
+                  <img
+                    src={project.hifiMockupB}
+                    alt={project.title}
+                    className="project-image-option-right"
+                  />
                 </section>
               </div>
             )}
