@@ -231,4 +231,11 @@ ol li {
   float: right;
   margin-left: 30px;
   margin-bottom: 10px;
+  width: 180px;
+  height: 180px;
+}
+
+.hero-image {
+  margin-top: 20px;
+  width: 100%;
 }

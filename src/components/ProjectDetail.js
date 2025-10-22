@@ -47,6 +47,16 @@ const ProjectDetail = ({ project }) => {
               </section>
             )}
 
+            {project.heroImage && (
+              <section>
+                <img
+                  src={project.heroImage}
+                  alt={project.title}
+                  className="hero-image"
+                />
+              </section>
+            )}
+
             {project.empathyStage && (
               <div>
                 <h3>Methodology and Goal</h3>
@@ -67,6 +77,21 @@ const ProjectDetail = ({ project }) => {
                   />
                   <p dangerouslySetInnerHTML={{ __html: project.defineStage }} />
                 </section>
+              </div>
+            )}
+
+            {project.imageOptionFloatLeft && (
+              <div>
+                <h3>{project.paragraphOneTitle}</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphOneContents }} />
+                <section>
+                  <img
+                    src={project.imageOptionFloatLeft}
+                    alt={project.title}
+                    className="project-image-option-left"
+                  />
+                </section>
+                <p dangerouslySetInnerHTML={{ __html: project.paragraphTwoContents }} />
               </div>
             )}
 
@@ -112,7 +137,7 @@ const ProjectDetail = ({ project }) => {
               </div>
             )}
 
-            {project.paragraphOneContents && (
+            {project.paragraphOneContents && !project.empathyStage && (
               <section>
                 <h3>{project.paragraphOneTitle || 'Paragraph 1'}</h3>
                 <p dangerouslySetInnerHTML={{ __html: project.paragraphOneContents }} />
