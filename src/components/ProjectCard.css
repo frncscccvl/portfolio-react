@@ -76,7 +76,7 @@
   z-index: 4;
     
   /* Make sure the 'x' itself doesn't cause a pointer change, as the parent span is clickable */
-  pointer-events: none; 
+  /*pointer-events: none;*/ 
 }
 
 /* Background colors for each category */
