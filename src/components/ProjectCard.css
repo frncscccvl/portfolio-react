@@ -56,7 +56,7 @@
   font-weight: 500;
 
   padding-left: 20px;
-  padding-right: 6px; 
+  /*padding-right: 6px;*/ 
   position: relative; /* Needed to position the icon absolutely */
 }
 
@@ -73,6 +73,7 @@
   line-height: 1;
   font-weight: 700;
   text-decoration: none;
+  z-index: 4;
     
   /* Make sure the 'x' itself doesn't cause a pointer change, as the parent span is clickable */
   pointer-events: none; 
@@ -130,7 +131,11 @@
 }
 
 .icon-size {
-  height: 22px;
-  width: 22px;
+  height: 18px;
+  width: 18px;
 }
 
+.keyword-seperator {
+  display: inline-block;
+  text-decoration: none;
+}

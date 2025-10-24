@@ -21,27 +21,30 @@ const ProjectCard = ({ project, onClick, isSelected, category, onKeywordClick, a
       {/*<h4>{project.categories}</h4>*/}
       <div className="card-keywords">
         {keywords.map((keyword, index) => (
-          <span
-            key={keyword}
-            className={`keyword ${activeKeywordFilter === keyword ? 'active' : ''}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              onKeywordClick(keyword, project.category);
-            }}
-          >
-            {activeKeywordFilter === keyword && (
-              <span className="clear-filter-icon">&times;</span>
-            )}
+          <React.Fragment key={keyword}>
+            <span
+              className={`keyword ${activeKeywordFilter === keyword ? 'active' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onKeywordClick(keyword, project.category);
+              }}
+            >
+              {/* 'x' icon rendering logic */}
+              {activeKeywordFilter === keyword && (
+                <span className="clear-filter-icon">&times;</span>
+              )}
 
-            <h4>{keyword}
+              {/* The keyword text */}
+              <h4>{keyword}</h4>
+            </span>
+
+            {/* 🔑 2. Render the comma and space OUTSIDE the clickable SPAN */}
             {index < keywords.length - 1 &&
-              <>
-                {','}
-                {/* 🔑 This forces a visible space */}
-                &nbsp;
-              </>
-            }</h4>
-          </span>
+              <span className="keyword-separator">
+                {','}&nbsp;
+              </span>
+            }
+          </React.Fragment>
         ))}
       </div>
 
