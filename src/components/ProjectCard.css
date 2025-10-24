@@ -36,6 +36,48 @@
   border: 2px solid #F28500;
 }
 
+.keyword {
+  /* Default styling */
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  cursor: default;
+  margin: 0;
+  padding: 0;
+}
+
+.keyword:hover {
+  text-decoration: underline;
+}
+
+/* 🔑 Highlight the currently active filter */
+.keyword.active {
+  text-decoration: underline;
+  font-weight: 500;
+
+  padding-left: 20px;
+  padding-right: 6px; 
+  position: relative; /* Needed to position the icon absolutely */
+}
+
+.clear-filter-icon {
+  /* 🔑 Style the 'x' to look like a clickable element */
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 5px; /* Position it slightly in from the right edge */
+  transform: translateY(-50%); /* Center vertically */
+
+  color: #F28500;      
+  font-size: 18px; /* Adjust size as needed */
+  line-height: 1;
+  font-weight: 700;
+  text-decoration: none;
+    
+  /* Make sure the 'x' itself doesn't cause a pointer change, as the parent span is clickable */
+  pointer-events: none; 
+}
+
 /* Background colors for each category */
 .designer {
   background-color: #DCD7D2;
@@ -78,5 +120,17 @@
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.icon-subtext-flex {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-size {
+  height: 22px;
+  width: 22px;
 }
 

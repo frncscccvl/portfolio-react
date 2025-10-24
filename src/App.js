@@ -32,11 +32,37 @@ function App() {
   const [activeTab, setActiveTab] = useState(null); // Default to 'null'
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeKeywordFilter, setActiveKeywordFilter] = useState(null);
 
-  const projectsToDisplay = activeTab
+  // 1. Determine the base set of projects (All projects or just the active tab's projects)
+  const baseProjects = activeTab
     ? allProjectsWithCategories.filter(project => project.category === activeTab)
     : allProjectsWithCategories;
-  //const projectsInActiveTab = allProjectsData[activeTab] || [];
+
+  // 2. Apply the keyword filter to the base set
+  const projectsToRender = activeKeywordFilter
+    ? baseProjects.filter(project =>
+        // 🔑 Project.categories must be a string for .includes()
+        project.categories && project.categories.includes(activeKeywordFilter)
+      )
+    : baseProjects; // If no keyword filter, use the base set
+
+  const handleKeywordClick = (keyword, category) => {
+  // 1. Check if the keyword is already the active filter AND the tab is correct.
+  //    If so, clicking it again de-selects the filter and resets the activeTab to the category.
+    if (activeKeywordFilter === keyword && activeTab === category) {
+      setActiveKeywordFilter(null);
+      setActiveTab(null);
+      setSelectedProject(null); // Clear selected project
+    } else {
+      // 2. If it's a new keyword or a new tab, set both states:
+      setActiveKeywordFilter(keyword);
+      // 🔑 Set the activeTab to the project's main category
+      setActiveTab(category);
+      // 🔑 Crucial: Clear any selected detail view
+      setSelectedProject(null);
+    }
+  };
 
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
@@ -51,7 +77,7 @@ function App() {
 
   /* Code to handle all projects visible on landing page. (Option B) */
   const handleCardClick = (projectId) => {
-    const project = projectsToDisplay.find(p => p.id === projectId);
+    const project = projectsToRender.find(p => p.id === projectId);
     setSelectedProject(project);
   };
 
@@ -94,14 +120,16 @@ function App() {
               <p className="no-projects-message">No projects found for this category yet.</p>
             )}*/}
             {/* Option B: Show all projects on landing page. */}
-            {projectsToDisplay.length > 0 ? (
-              projectsToDisplay.map(project => (
+            {projectsToRender.length > 0 ? (
+              projectsToRender.map(project => (
                 <ProjectCard
                   key={project.id}
                   project={project}
                   onClick={handleCardClick}
                   isSelected={selectedProject && selectedProject.id === project.id}
                   category={project.category}
+                  onKeywordClick={handleKeywordClick}
+                  activeKeywordFilter={activeKeywordFilter}
                 />
               ))
             ) : (
