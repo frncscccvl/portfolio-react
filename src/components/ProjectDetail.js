@@ -80,18 +80,23 @@ const ProjectDetail = ({ project }) => {
               </div>
             )}
 
-            {project.imageOptionFloatLeft && (
+            {project.imageOptionFloatLeft && project.imageOptionFloatRight && (
               <div>
-                <h3>{project.paragraphOneTitle}</h3>
-                <p dangerouslySetInnerHTML={{ __html: project.paragraphOneContents }} />
+                <h3>{project.imagesDescTitle}</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.imagesDescContentsA }} />
                 <section>
                   <img
                     src={project.imageOptionFloatLeft}
                     alt={project.title}
                     className="project-image-option-left"
                   />
+                  <img
+                    src={project.imageOptionFloatRight}
+                    alt={project.title}
+                    className="project-image-option-left"
+                  />
                 </section>
-                <p dangerouslySetInnerHTML={{ __html: project.paragraphTwoContents }} />
+                <p dangerouslySetInnerHTML={{ __html: project.imagesDescContentsB }} />
               </div>
             )}
 
@@ -342,6 +347,7 @@ const ProjectDetail = ({ project }) => {
                   <p dangerouslySetInnerHTML={{ __html: project.topicsA }} />
                   <p dangerouslySetInnerHTML={{ __html: project.topicsB }} />
                   <p dangerouslySetInnerHTML={{ __html: project.topicsC }} />
+                  <p dangerouslySetInnerHTML={{ __html: project.topicsD }} />
                 </section>
               </section>
             )}

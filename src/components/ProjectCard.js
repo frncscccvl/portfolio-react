@@ -18,7 +18,6 @@ const ProjectCard = ({ project, onClick, isSelected, category, onKeywordClick, a
         className="project-card-image"
       />*/}
       {/* Content can be directly inside the .project-card now that it's a flex container */}
-      {/*<h4>{project.categories}</h4>*/}
       <div className="card-keywords">
         {keywords.map((keyword, index) => (
           <React.Fragment key={keyword}>
