@@ -347,7 +347,6 @@ const ProjectDetail = ({ project }) => {
                   <p dangerouslySetInnerHTML={{ __html: project.topicsA }} />
                   <p dangerouslySetInnerHTML={{ __html: project.topicsB }} />
                   <p dangerouslySetInnerHTML={{ __html: project.topicsC }} />
-                  <p dangerouslySetInnerHTML={{ __html: project.topicsD }} />
                 </section>
               </section>
             )}
