@@ -216,7 +216,7 @@ ol li {
   margin-top: 15px;
   margin-right: 5px;
   margin-bottom: 10px;
-  width: 48.8%;
+  width: 49.2%;
 }
 
 .project-image-option-right {
@@ -224,7 +224,7 @@ ol li {
   margin-top: 15px;
   margin-left: 5px;
   margin-bottom: 10px;
-  width:48.8%;
+  width:49.2%;
 }
 
 .persona-image {
@@ -239,3 +239,8 @@ ol li {
   margin-top: 20px;
   width: 100%;
 }
+
+/*.hifi-visuals-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}*/

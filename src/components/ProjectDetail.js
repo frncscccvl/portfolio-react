@@ -126,8 +126,8 @@ const ProjectDetail = ({ project }) => {
             {project.hifiMockupA && (
               <div>
               <h3>HiFi Visuals</h3>
-                <p dangerouslySetInnerHTML={{ __html: project.hifiMockupADesc }} />
-                <section>
+                <p dangerouslySetInnerHTML={{ __html: project.hifiMockupDescA }} />
+                <section className="hifi-visuals-section">
                   <img
                     src={project.hifiMockupA}
                     alt={project.title}
@@ -138,7 +138,13 @@ const ProjectDetail = ({ project }) => {
                     alt={project.title}
                     className="project-image-option-right"
                   />
+                  <p dangerouslySetInnerHTML={{ __html: project.hifiMockupDescB }} />
                 </section>
+                <img
+                  src={project.flowChart}
+                  alt={project.title}
+                  className="hero-image"
+                />
               </div>
             )}
 
