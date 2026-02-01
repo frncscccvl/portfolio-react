@@ -3,54 +3,51 @@ import './Footer.css';
 
 const Footer = ({ onTabClick, activeTab }) => {
   const [animateTabs, setAnimateTabs] = useState(false);
-  const [hasRebounced, setHasRebounced] = useState(false); // New state to track if re-bounce occurred
-  const idleTimerRef = useRef(null); // Ref to store our idle timer
-  const initialAnimationTimerRef = useRef(null); // Ref for initial animation delay
+  const [hasRebounced, setHasRebounced] = useState(false);
+  const idleTimerRef = useRef(null);
+  const initialAnimationTimerRef = useRef(null);
 
-  const IDLE_TIME_MS = 5000; // 5 seconds (adjust as needed)
+  const IDLE_TIME_MS = 5000;
 
-  // Function to start or reset the idle timer
   const startIdleTimer = () => {
     if (idleTimerRef.current) {
       clearTimeout(idleTimerRef.current);
     }
-    // Only set a new timer if a re-bounce hasn't happened yet
     if (!hasRebounced) {
       idleTimerRef.current = setTimeout(() => {
-        setAnimateTabs(false); // Reset animation state to re-trigger
-        setTimeout(() => setAnimateTabs(true), 50); // Small delay to ensure re-trigger
-        setHasRebounced(true); // Mark that the re-bounce has happened
-        // No need to clear idleTimerRef.current here, as it's handled by startIdleTimer next time.
+        setAnimateTabs(false);
+        setTimeout(() => setAnimateTabs(true), 50);
+        setHasRebounced(true);
       }, IDLE_TIME_MS);
     }
   };
 
-  // Effect for the initial bounce on component mount
   useEffect(() => {
     initialAnimationTimerRef.current = setTimeout(() => {
       setAnimateTabs(true);
-      startIdleTimer(); // Start the idle timer after initial animation
-    }, 100); // Small initial delay
+      startIdleTimer();
+    }, 100);
 
     return () => {
       clearTimeout(initialAnimationTimerRef.current);
-      clearTimeout(idleTimerRef.current); // Clear timer on unmount
+      clearTimeout(idleTimerRef.current);
     };
-  }, []); // Runs once on mount
+  }, []);
 
-  // Modified handleTabClick to include timer reset
   const handleInternalTabClick = (tabName) => {
-    onTabClick(tabName); // Call parent's handler
-    if (!hasRebounced) { // Only reset timer if re-bounce hasn't happened
-      startIdleTimer(); // Reset the idle timer
+    onTabClick(tabName); // Triggers state change in App.js
+    if (!hasRebounced) {
+      startIdleTimer();
     }
-    // No need to set animateTabs to false here; we want the animation to stop after it plays initially.
   };
 
   return (
     <div className="footer">
       <p>
-        [u]x&nbsp;
+        {/* 1. Static Prefix */}
+        <span className="ux-prefix">[u]x</span>
+
+        {/* 2. Designer - Always visible */}
         <span
           className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'designer' ? 'active' : ''}`}
           style={{ '--animation-delay': '0s' }}
@@ -58,25 +55,28 @@ const Footer = ({ onTabClick, activeTab }) => {
         >
           designer
         </span>
-        <a className="hideClickableWords">&nbsp;
+
+        {/* 3. Engineer - Individual Child */}
         <span
-          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'engineer' ? 'active': ''}`}
+          className={`clickable-word hideClickableWords with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'engineer' ? 'active': ''}`}
           style={{ '--animation-delay': '0.2s' }}
           onClick={() => handleInternalTabClick('engineer')}
         >
           engineer
         </span>
-        &nbsp;
+
+        {/* 4. Writer - Individual Child */}
         <span
-          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'writer' ? 'active' : ''}`}
+          className={`clickable-word hideClickableWords with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'writer' ? 'active' : ''}`}
           style={{ '--animation-delay': '0.4s' }}
           onClick={() => handleInternalTabClick('writer')}
         >
           writer
-        </span></a>
-        &nbsp;
+        </span>
+
+        {/* 5. Scientist - Always visible */}
         <span
-          className={`clickable-word ${activeTab === null ? 'active' : ''}`}
+          className={`clickable-word scientist-word ${activeTab === null ? 'active' : ''}`}
           onClick={() => handleInternalTabClick(null)}
         >
           scientist

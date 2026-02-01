@@ -34,7 +34,7 @@ const ProjectCard = ({ project, onClick, isSelected, category, onKeywordClick, a
               )}
 
               {/* The keyword text */}
-              <h4>{keyword}</h4>
+              <h3>{keyword}</h3>
             </span>
 
             {/* 🔑 2. Render the comma and space OUTSIDE the clickable SPAN */}
@@ -51,14 +51,15 @@ const ProjectCard = ({ project, onClick, isSelected, category, onKeywordClick, a
 
       {project.icon ? (
         <div className="icon-subtext-flex">
-          <img
+          {/* project icon highligting subtext -- optional*/}
+          {/*<img
             src={project.icon}
             className="icon-size"
-          />
-          <h4>{project.subtext}</h4>
+          />*/}
+          <h3>{project.subtext}</h3>
         </div>
       ) : (
-        <h4>{project.subtext}</h4>
+        <h3>{project.subtext}</h3>
       )}
     </div>
   );

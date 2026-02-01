@@ -11,8 +11,8 @@
   border: 1px solid #333;
 
   position: fixed; /* Position it relative to the 'app-container' */
-  top: var(--header-height); /* Start below the header */
-  bottom: var(--footer-height); /* End above the footer */
+  top: 1%; /* Start below the header */
+  bottom: 17%; /* End above the footer */
 
   width: calc(100% - (var(--main-content-padding) * 2)); /* Set a width less than 100% */
   left: 50%;

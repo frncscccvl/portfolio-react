@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import ProjectCard from './components/ProjectCard';
 import ProjectDetail from './components/ProjectDetail';
@@ -33,6 +32,31 @@ function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [activeKeywordFilter, setActiveKeywordFilter] = useState(null);
+
+  // Function to send data to Google Analytics (Assumes gtag is globally available)
+  const trackProjectCardClick = (projectId, projectTitle, category) => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'select_content', {
+        // 🔑 Event Name (GA4 Standard Event for component selection)
+        event_name: 'project_card_click',
+
+        // 🔑 Unique Content Type
+        content_type: 'Project_Card',
+
+        // 🔑 The primary unique identifier
+        item_id: projectId,
+
+        // 🔑 The user-friendly identifier
+        item_name: projectTitle,
+
+        // Additional Context (the Tab/Category)
+        item_category: category,
+      });
+    } else {
+      // This is useful for testing in dev environments without the GA script
+      console.warn(`[GA Log]: Project clicked: ${projectTitle} (${projectId})`);
+    }
+  };
 
   // 1. Determine the base set of projects (All projects or just the active tab's projects)
   const baseProjects = activeTab
@@ -78,7 +102,14 @@ function App() {
   /* Code to handle all projects visible on landing page. (Option B) */
   const handleCardClick = (projectId) => {
     const project = projectsToRender.find(p => p.id === projectId);
-    setSelectedProject(project);
+
+    if (project) {
+      // 🔑 Pass all unique identifiers to the tracking function
+      trackProjectCardClick(project.id, project.title, project.category);
+
+      // Set the state to display the detail view
+      setSelectedProject(project);
+    }
   };
 
   // Effect to determine if it's a mobile screen based on width
@@ -96,7 +127,6 @@ function App() {
 
   return (
     <div className={`app-container ${selectedProject ? 'project-detail-active' : ''}`}>
-      <Header />
 
       {isMobile ? (
         <MobileChatbotView />

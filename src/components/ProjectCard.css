@@ -33,7 +33,7 @@
 }
 
 .project-card.selected {
-  border: 2px solid #F28500;
+  border: 2.5px solid #F28500;
 }
 
 .keyword {
@@ -106,7 +106,7 @@
   z-index: 1;
 }*/
 
-.project-card h4 {
+.project-card h3 {
   z-index: 2; /* Ensure text is above image */
   width: 100%;
   top: 2px;

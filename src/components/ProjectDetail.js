@@ -214,17 +214,25 @@ const ProjectDetail = ({ project }) => {
         return (
           // --- WRITING TEMPLATE ---
           <>
-            {project.prompt && (
+            {project.promptTitle && (
               <section>
-                <h3>Prompt</h3>
+                <h3>{project.promptTitle}</h3>
                 <p>{project.prompt}</p>
+                <p>{project.snapshot}</p>
+              </section>
+            )}
+
+            {project.uxWritingRationale && (
+              <section>
+                <h3>🧠 UX Writing/Content Strategy Rationale</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.uxWritingRationale }} />
               </section>
             )}
 
             {project.thesis && (
               <section>
-                <h3>Thesis / Goal</h3>
-                <p>{project.thesis || 'Not specified yet.'}</p>
+                <h3>{project.snapshotTitle}</h3>
+                <p dangerouslySetInnerHTML={{ __html: project.thesis }} />
               </section>
             )}
 

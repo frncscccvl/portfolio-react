@@ -3,16 +3,10 @@
   src: url("assets/fonts/ChromaticaTrial-Regular.otf");
 }
 
-@font-face {
-  font-family: "JetBrainsMono";
-  src: url("assets/fonts/JetBrainsMono-Regular.ttf");
-}
-
-/* Basic reset and global styling */
 body, html, #root {
-  background-color: #E8E6E2; /* Your chosen background color */
+  background-color: #E8E6E2;
   color: #333; /* Default text color */
-  font-family: "Chromatica", sans-serif; /* Fallback font is important */
+  font-family: "Chromatica", sans-serif;
   margin: 0;
   padding: 0;
   height: 100%; /* Make sure html and body take full height */
@@ -29,7 +23,6 @@ body, html, #root {
 
 /* CSS Variables for Header/Footer heights */
 :root {
-  --header-height: 80px; /* IMPORTANT: Adjust based on the ACTUAL, computed height of your Header.js component */
   --footer-height: 80px; /* IMPORTANT: Adjust based on the ACTUAL, computed height of your Footer.js component */
   --main-content-padding: 10px; /* Padding around the main content area */
   --detail-width: 51vw; /* New variable for the detail section's fixed width */
@@ -46,6 +39,10 @@ body, html, #root {
   transition: width 0.05s ease-in-out; /* Smooth transition for width changes */
 }
 
+.footer {
+  width: 100vw;
+}
+
 .app-container.project-detail-active .main-content.desktop-only {
   width: 49vw; /* Shrink to 49vw when detail is active */
   /*justify-content: flex-start;*/ /* Align cards to the start when detail is open */
@@ -58,13 +55,13 @@ body, html, #root {
   flex-shrink: 1;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
   gap: 8px;
   padding: 10px;
 
   height: 100%;
   min-height: 0;
-  max-height: calc(100vh - 175px);
+  max-height: calc(100vh - 16vh);
   max-width: 100%;
 
   overflow: hidden;
@@ -72,7 +69,6 @@ body, html, #root {
   box-sizing: border-box;
 
   position: relative; /* Position it relative to the 'app-container' */
-  margin-top: var(--header-height); /* Start below the header */
   margin-bottom: var(--footer-height); /* End above the footer */
 
   -webkit-overflow-scrolling: touch;
@@ -83,18 +79,17 @@ body, html, #root {
 .testFlex {
   display: flex;
   width: 100%;
-  width: 100%;
 }
 
 .cards-section::-webkit-scrollbar {
   display: none;
 }
 
-/* Right side: Project Detail section - NOW ABSOLUTELY POSITIONED */
+/* Right side: Project Detail section */
 .detail-section {
   position: absolute; /* Take it out of the normal document flow */
   top: 0; /* Align to the top of the parent (.app-container) */
-  bottom: 0; /* Align to the bottom of the parent (.app-container) */
+  bottom: 16%; /* Align to the bottom of the parent (.app-container) */
   right: 0; /* Align to the right edge of the parent (.app-container) */
 
   width: var(--detail-width); /* Set its width to 51vw */
@@ -104,14 +99,13 @@ body, html, #root {
   box-sizing: border-box; /* Include padding in the total width/height */
 
   overflow-y: auto; /* Allow internal scrolling for the detail content */
+  
+  border-left: 4px solid transparent; /* Start transparent */
+  transition: border-color 0.1s ease;
 }
 
 .detail-section.detail-active {
-  border-left: 1px solid #333; 
-  
-  /*.main-content.desktop-only {
-    width: 49vw;
-  }*/ 
+  border-left: 4px solid #333;  
 }
 
 /* Placeholder styles */
@@ -146,13 +140,13 @@ body, html, #root {
 }
 
 @media (max-width:1500px) and (min-width: 1024px) {
-  .detail-section {
+  /*.detail-section {
     width: 60vw;
   }
   
   .app-container.project-detail-active .main-content.desktop-only {
     width: 40vw;
-  }
+  }*/
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
