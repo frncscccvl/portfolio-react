@@ -6,8 +6,6 @@
   box-sizing: border-box;
   background-color: #E8E6E2; /* background for the chatbot area */
   border-radius: 0;
-  /*box-shadow: 0 2px 5px rgba(0,0,0,0.05);*/
-
   border: 1px solid #333;
 
   position: fixed; /* Position it relative to the 'app-container' */

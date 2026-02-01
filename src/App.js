@@ -127,7 +127,6 @@ function App() {
 
   return (
     <div className={`app-container ${selectedProject ? 'project-detail-active' : ''}`}>
-
       {isMobile ? (
         <MobileChatbotView />
       ) : (

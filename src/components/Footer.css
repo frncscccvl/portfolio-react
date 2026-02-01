@@ -113,33 +113,26 @@
     cursor: initial;
   }
 
-  .hideClickableWords {
-    display: none;
-  }
-
   .with-strikethrough::after {
     background-color: rgba(0, 0, 0, 0.50);
   }
   
 }
 
-/*@media (max-width: 1023px) {
-  .footer p {
-    justify-content: center;
-    margin-top: 12px;
-  }
-}*/
+/* --- MEDIA QUERIES --- */
 
 /* Stage 1: Screen gets tight (e.g., Tablet/Narrow Desktop) 
    ELIMINATE: 'engineer' */
-@media (max-width: 1500px) {
+@media (max-width: 1600px) {
   .word-engineer {
     display: none !important;
   }
   
   /* Optional: Boost the size of the remaining 3 words to fill the gap */
   .footer p {
-     font-size: clamp(2.5rem, 16vw, 6.2rem) !important;
+    font-size: clamp(2.5rem, 16vw, 6.2rem) !important;
+    justify-content: center;
+    gap: 2rem;     
   }
 }
 
@@ -148,6 +141,12 @@
 @media (max-width: 1280px) {
   .word-writer {
     display: none !important;
+  }
+
+  .footer p {
+    font-size: clamp(2.5rem, 16vw, 6.2rem) !important;
+    justify-content: center !important;
+    gap: 2rem;
   }
 }
 
@@ -159,6 +158,8 @@
   }
   /* Center the remaining two anchors */
   .footer p {
-    justify-content: space-around !important;
+    font-size: clamp(1.5rem, 15vw, 5.2rem) !important;
+    justify-content: center !important;
+    gap: 2rem;
   }
 }
