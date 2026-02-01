@@ -49,7 +49,7 @@ const Footer = ({ onTabClick, activeTab }) => {
 
         {/* 2. Designer - Always visible */}
         <span
-          className={`clickable-word with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'designer' ? 'active' : ''}`}
+          className={`clickable-word word-designer with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'designer' ? 'active' : ''}`}
           style={{ '--animation-delay': '0s' }}
           onClick={() => handleInternalTabClick('designer')}
         >
@@ -58,7 +58,7 @@ const Footer = ({ onTabClick, activeTab }) => {
 
         {/* 3. Engineer - Individual Child */}
         <span
-          className={`clickable-word hideClickableWords with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'engineer' ? 'active': ''}`}
+          className={`clickable-word word-engineer with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'engineer' ? 'active': ''}`}
           style={{ '--animation-delay': '0.2s' }}
           onClick={() => handleInternalTabClick('engineer')}
         >
@@ -67,7 +67,7 @@ const Footer = ({ onTabClick, activeTab }) => {
 
         {/* 4. Writer - Individual Child */}
         <span
-          className={`clickable-word hideClickableWords with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'writer' ? 'active' : ''}`}
+          className={`clickable-word word-writer with-strikethrough ${animateTabs ? 'bounce-on-load' : ''} ${activeTab === 'writer' ? 'active' : ''}`}
           style={{ '--animation-delay': '0.4s' }}
           onClick={() => handleInternalTabClick('writer')}
         >

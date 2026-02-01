@@ -32,7 +32,6 @@
   /*padding: 0 0 16px 0;*/
   margin: 0;
   white-space: nowrap;
-  /*gap: 2.5cqw;*/
 
   font-size: clamp(2rem, 15vw, 6.2rem);
   transition: none;
@@ -124,15 +123,42 @@
   
 }
 
-@media (min-width: 1024px) and (max-width: 1580px) {
-  .hideClickableWords {
-    display: none;
-  }
-}
-
-@media (max-width: 1023px) {
+/*@media (max-width: 1023px) {
   .footer p {
     justify-content: center;
     margin-top: 12px;
   }
-} 
+}*/
+
+/* Stage 1: Screen gets tight (e.g., Tablet/Narrow Desktop) 
+   ELIMINATE: 'engineer' */
+@media (max-width: 1500px) {
+  .word-engineer {
+    display: none !important;
+  }
+  
+  /* Optional: Boost the size of the remaining 3 words to fill the gap */
+  .footer p {
+     font-size: clamp(2.5rem, 16vw, 6.2rem) !important;
+  }
+}
+
+/* Stage 2: Screen gets very narrow (e.g., Small Tablet) 
+   ELIMINATE: 'writer' (Now only 'designer' is left in the middle) */
+@media (max-width: 1280px) {
+  .word-writer {
+    display: none !important;
+  }
+}
+
+/* Stage 3: Mobile (if not handled by MobileChatbotView)
+   ELIMINATE: 'designer' (Only '[u]x' and 'scientist' remain) */
+@media (max-width: 1023px) {
+  .word-designer {
+    display: none !important;
+  }
+  /* Center the remaining two anchors */
+  .footer p {
+    justify-content: space-around !important;
+  }
+}
