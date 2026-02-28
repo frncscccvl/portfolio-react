@@ -5,6 +5,10 @@
   /* Add any specific internal spacing or text styles here */
   line-height: 1.6; /* Improved readability for long text */
   color: #333; /* Darker text for readability */
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-detail-header-image-container {
@@ -244,3 +248,125 @@ ol li {
   margin-top: 20px;
   margin-bottom: 20px;
 }*/
+
+
+/* --- Email Form M3 Styles --- */
+.email-compose-section {
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-color: #F5F5F7; /* soft off-white option: #F8F7F5 */
+  border-radius: 24px;
+
+  min-height: calc(100vh - 280px);  
+
+  display: flex;
+  flex-direction: column;
+}
+
+.email-form {
+  flex-grow : 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.email-input,
+.email-textarea {
+  width: 100%;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E0D3C9;
+  border-radius: 12px;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+.email-input {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.email-textarea {
+  width: 100%;
+  flex-grow: 1; /* 🔑 Makes the message box expand to fill the vertical gap */
+  min-height: 150px; /* Prevents it from disappearing on small screens */
+  padding: 1rem;
+  box-sizing: border-box;
+  resize: none; /* Recommended if you want a fixed 'no-scroll' look */
+}
+
+/* M3 Focus State */
+.email-input:focus,
+.email-textarea:focus {
+  outline: none;
+  border-color: #F28500;
+  box-shadow: 0 0 0 2px rgba(175, 100, 58, 0.2);
+}
+
+.email-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.email-submit-btn {
+  margin-top: auto;
+  width: fit-content;
+  align-self: flex-start;
+  padding: 0.75rem 2rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #EFAA54;
+  border: none;
+  border-radius: 100px; /* Fully rounded M3 pill button */
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.email-submit-btn:hover {
+  background-color: #EFAA54;
+  transform: translateY(-2px);
+}
+
+.success-message {
+  /* 🔑 Use flex-grow to occupy the same space the form did */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  
+  /* 🔑 Horizontal and Vertical centering */
+  align-items: center; 
+  justify-content: center;
+  
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.success-message h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 400px; /* Keeps text readable on wide desktop views */
+}
+
+.success-message .email-submit-btn {
+  align-self: center; 
+  margin: 2rem auto 0 auto; /* Adds space above, and auto-centers left/right */
+}
+
+.form-heading {
+  align-self: center;
+}

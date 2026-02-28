@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProjectDetail.css';
 
 const ProjectDetail = ({ project }) => {
+  const [status, setStatus] = useState('idle');
+
   // Defensive check: If no project is passed (e.g., initially null), render nothing or a placeholder
   if (!project) {
     return (
@@ -13,6 +15,35 @@ const ProjectDetail = ({ project }) => {
 
   // Destructure project properties for easier access
   const { title, category, headerImage, longDesc } = project;
+
+  // 🔑 Submit handler scoped correctly to the component
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    // Grab the form data
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // Replace this URL with your actual deployed Firebase Function URL later
+      const response = await fetch('https://send-email-yxvqzxoq5a-uc.a.run.app', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        e.target.reset(); // Clear the form
+      } else {
+        throw new Error('Backend failed');
+      }
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+      setStatus('idle');
+    }
+  };
 
   const renderTemplate = (category) => {
     switch (category) {
@@ -159,7 +190,7 @@ const ProjectDetail = ({ project }) => {
               <section>
                 <img
                   src={project.imageTwo}
-                  alt={project.title} // Always include alt text for accessibility!
+                  alt={project.title} 
                   className="project-detail-image"
                 />
               </section>
@@ -183,7 +214,7 @@ const ProjectDetail = ({ project }) => {
               <section>
                 <img
                   src={project.imageFour}
-                  alt={project.title} // Always include alt text for accessibility!
+                  alt={project.title}
                   className="project-detail-image"
                 />
               </section>
@@ -201,12 +232,23 @@ const ProjectDetail = ({ project }) => {
               <section>
                 <img
                   src={project.image}
-                  alt={project.title} // Always include alt text for accessibility!
+                  alt={project.title}
                   className="project-detail-image"
                 />
               </section>
             )}
 
+            {project.privacyPolicy && (
+              <section>
+                {project.privacyPolicy}
+              </section>
+            )}
+
+            {project.tos && (
+              <section>
+                {project.tos}
+              </section>
+            )}
           </>
         );
 
@@ -261,7 +303,7 @@ const ProjectDetail = ({ project }) => {
               <section>
                 <img
                   src={project.image}
-                  alt={project.title} // Always include alt text for accessibility!
+                  alt={project.title} 
                   className="project-detail-image"
                 />
               </section>
@@ -328,60 +370,67 @@ const ProjectDetail = ({ project }) => {
         );
 
       case 'scientist':
+        // CV display cleared out for future refactoring
+        return null;
+
+      case 'contact':
         return (
-          <>
-            {project.jobEntryOne && (
-              <section className="cv-exp-box-flex-row">
-                <p>experience</p>
-                <section className="cv-exp-box-flex-column">
-                  <p dangerouslySetInnerHTML={{ __html: project.jobEntryThree }} />
-                  <p dangerouslySetInnerHTML={{ __html: project.jobEntryTwo }} />
-                  <p dangerouslySetInnerHTML={{ __html: project.jobEntryOne }} />
-                </section>
-
-                <section className="cv-exp-desc-box-flex-column">
-                  <p dangerouslySetInnerHTML={{ __html: project.jobDescThree }} />
-                  <p dangerouslySetInnerHTML={{ __html: project.jobDescTwo }} />
-                  <p dangerouslySetInnerHTML={{ __html: project.jobDescOne }} />
-                </section>
-              </section>
+          <section className="email-compose-section">
+            {status === 'success' ? (
+              <div className="success-message">
+                <h3>Message Sent!</h3>
+                <p>I've received your message and will get back to you soon.</p>
+                <button onClick={() => setStatus('idle')} className="email-submit-btn">
+                  Send another
+                </button>
+              </div>
+            ) : (
+              <>
+                <h3 className="form-heading">Composing email to hello@frncscccvl.com</h3>
+                <form className="email-form" onSubmit={handleEmailSubmit}>
+                  <input
+                    type="text"
+                    name="user_name"
+                    placeholder="Your Name"
+                    required
+                    disabled={status === 'sending'}
+                    className="email-input"
+                  />
+                  <input
+                    type="email"
+                    name="user_email"
+                    placeholder="Your Email"
+                    required
+                    disabled={status === 'sending'}
+                    className="email-input"
+                  />
+                  <textarea
+                    name="message"
+                    placeholder="Inquiry..."
+                    required
+                    disabled={status === 'sending'}
+                    className="email-textarea"
+                  />
+                  <button
+                    type="submit"
+                    className="email-submit-btn"
+                    disabled={status === 'sending'}
+                  >
+                    {status === 'sending' ? 'Sending...' : 'Send Message'}
+                  </button>
+                </form>
+              </>
             )}
-
-            {project.educationDesc && (
-              <section className="cv-edu-box-flex-row">
-                <p>education</p>
-                <p dangerouslySetInnerHTML={{ __html: project.educationDesc }} />
-              </section>
-            )}
-
-            {project.topicsA && (
-              <section className="cv-topics-box-flex">
-                <p>topics</p>
-                <section className="cv-topics-box-flex-content">
-                  <p dangerouslySetInnerHTML={{ __html: project.topicsA }} />
-                  <p dangerouslySetInnerHTML={{ __html: project.topicsB }} />
-                  <p dangerouslySetInnerHTML={{ __html: project.topicsC }} />
-                </section>
-              </section>
-            )}
-
-            {project.quote && (
-              <section className="cv-quote-box-flex">
-                <p dangerouslySetInnerHTML={{ __html: project.quote }} />
-              </section>
-            )}
-
-            <h1></h1>
-          </>
+          </section>
         );
+      default:
+        return null;
     }
   };
 
   return (
     <div className="project-detail">
       <p className="project-detail-title">{title}</p>
-      {/*<p className="project-detail-description">{longDesc}</p>*/}
-
       <div className="project-detail-content">
         {renderTemplate(project.category)}
       </div>

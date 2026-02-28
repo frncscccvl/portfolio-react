@@ -52,11 +52,11 @@
 
 .clickable-word:hover,
 .clickable-word:focus {
-  color: #F28500;
+  color: #EFAA54;
 }
 
 .clickable-word.active {
-  color: #F28500;
+  color: #EFAA54;
 }
 
 .with-strikethrough::after {

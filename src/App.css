@@ -4,7 +4,8 @@
 }
 
 body, html, #root {
-  background-color: #E8E6E2;
+  /*background-color: #E8E6E2;*/
+  background-color: #FFF;
   color: #333; /* Default text color */
   font-family: "Chromatica", sans-serif;
   margin: 0;

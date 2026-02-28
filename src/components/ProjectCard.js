@@ -13,10 +13,13 @@ const ProjectCard = ({ project, onClick, isSelected, category, onKeywordClick, a
       className={`project-card ${category} ${isSelected ? 'selected' : ''}`}
       onClick={handleClick}
     >
-      {/*<img
-        src={project.image}
-        className="project-card-image"
-      />*/}
+      {project.cardImage && (
+        <img
+          src={project.cardImage}
+          className="project-card-image"
+          alt={project.title || "Project visual"}
+        />
+      )}
       {/* Content can be directly inside the .project-card now that it's a flex container */}
       <div className="card-keywords">
         {keywords.map((keyword, index) => (

@@ -58,18 +58,20 @@ function App() {
     }
   };
 
-  // 1. Determine the base set of projects (All projects or just the active tab's projects)
-  const baseProjects = activeTab
+  // 1. Determine the base set of projects
+  // 🔑 Exception: If the activeTab is 'scientist', do not filter (acts as View All)
+  const baseProjects = (activeTab && activeTab !== 'scientist')
     ? allProjectsWithCategories.filter(project => project.category === activeTab)
     : allProjectsWithCategories;
 
   // 2. Apply the keyword filter to the base set
-  const projectsToRender = activeKeywordFilter
+  // 🔑 Exception: If the keyword is 'scientist', do not filter
+  const projectsToRender = (activeKeywordFilter && activeKeywordFilter !== 'scientist')
     ? baseProjects.filter(project =>
-        // 🔑 Project.categories must be a string for .includes()
+        // Project.categories must be a string for .includes()
         project.categories && project.categories.includes(activeKeywordFilter)
       )
-    : baseProjects; // If no keyword filter, use the base set
+    : baseProjects; // If no keyword filter or it's 'scientist', use the base set
 
   const handleKeywordClick = (keyword, category) => {
   // 1. Check if the keyword is already the active filter AND the tab is correct.
