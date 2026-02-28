@@ -13,6 +13,7 @@
   aspect-ratio: 1 / 1; 
   
   background-color: #fff;
+  border: 1px solid #E0E0E0;
   border-radius: 16px;
   cursor: default;
   overflow: hidden; /* Hide anything that goes outside the square */

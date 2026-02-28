@@ -257,6 +257,7 @@ ol li {
   padding: 2rem;
   box-sizing: border-box;
   background-color: #F5F5F7; /* soft off-white option: #F8F7F5 */
+  border: 1px solid #E0E0E0;
   border-radius: 24px;
 
   min-height: calc(100vh - 280px);  
@@ -304,7 +305,7 @@ ol li {
 .email-input:focus,
 .email-textarea:focus {
   outline: none;
-  border-color: #F28500;
+  border-color: #EFAA54;
   box-shadow: 0 0 0 2px rgba(175, 100, 58, 0.2);
 }
 
@@ -321,7 +322,7 @@ ol li {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #333;
   background-color: #EFAA54;
   border: none;
   border-radius: 100px; /* Fully rounded M3 pill button */
